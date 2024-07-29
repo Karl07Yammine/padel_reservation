@@ -1,0 +1,18 @@
+html{
+    padding: 1vh 2vw ;
+}
+
+.days{
+    background-color: lightblue;
+    border-radius: 0.5vw 0.5vw 0 0;
+    height: 4vh;
+}
+
+
+.col-3{
+    height: 4vh;
+}
+
+.right-border{
+    border-right: 1px solid gray;
+}
