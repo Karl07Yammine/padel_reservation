@@ -1,18 +1,81 @@
 html{
-    padding: 1vh 2vw ;
+    padding:0 5vw ;
+    font-size: 1.25vw;
+}
+
+.week-bar{
+    height: 2.5vw;
+    border-radius: 0.5vw;
+    border: 1px solid black;
+    margin-bottom: 2vw;
 }
 
 .days{
     background-color: lightblue;
     border-radius: 0.5vw 0.5vw 0 0;
-    height: 4vh;
+    border: 1px solid gray;
+    height: 2vw;
 }
 
-
 .col-3{
-    height: 4vh;
+    height: 2vw;
 }
 
 .right-border{
     border-right: 1px solid gray;
+}
+
+.boxes{
+    border: 1px solid gray;
+    border-top: none;
+    height: 4vw;
+}
+
+
+.b{
+    height: 4vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input[type="checkbox"]{
+height: 1.5vw;
+width: 1.5vw;
+accent-color: green;
+}
+
+.checked{
+    background-color: green;
+}
+
+.bottom{
+    border-radius: 0 0 0.5vw 0.5vw;
+}
+
+.SU2330{
+    border-radius: 0 0 0.5vw 0;
+}
+
+.buttons{
+    font-size: 2.5vw;
+    padding: 0;
+    margin: 0;
+    cursor: default;
+    margin-top: -0.45vw;
+}
+
+.col-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5vw 0.5vw 0.5vw 0.5vw;
+    height: 100%;
+    background-color: rgb(157, 215, 234);
+}
+
+.col-10{
+    font-size: 1.25vw;
+    font-weight: bolder;
+    height: 2.5vw;
 }
