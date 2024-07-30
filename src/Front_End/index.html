@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootstrap Nested Columns</title>
+    <title>Padel Bypass</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="master.css">
 </head>
@@ -20,7 +20,7 @@
             <div class="col-10">
                 <p class="text-center">WEEK OF 16 - 23</p>
             </div>
-            <div class="col-1">
+            <div class="col-1 nextweek">
                 <p class="buttons">&gt;</p>
             </div>
         </div>
@@ -588,31 +588,6 @@
         </div>
     </div>
 
-
-    <script>
-        // Function to handle the checkbox change event
-        function handleCheckboxChange(event) {
-            const checkbox = event.target;
-            const div = checkbox.closest('.col-3');
-
-            if (checkbox.checked) {
-                div.classList.add('checked');
-            } else {
-                div.classList.remove('checked');
-            }
-        }
-
-        // Initialize event listeners for all checkboxes
-        function initializeCheckboxListeners() {
-            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-
-            checkboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', handleCheckboxChange);
-            });
-        }
-
-        // Initialize the event listeners after the DOM is fully loaded
-        document.addEventListener('DOMContentLoaded', initializeCheckboxListeners);
-    </script>
+    <script src="index.js"></script>
 </body>
 </html>
