@@ -18,14 +18,14 @@ const nextWeekButton = document.getElementsByClassName("nextweek")[0];
     const calendar = document.getElementsByClassName("calendar")[0];
 
     nextWeekButton.addEventListener("click", function() {
-        fetch('calendar.html')
+        fetch('preset.html')
             .then(response => response.text())
             .then(data => {
                 calendar.innerHTML = data;
                 initializeCheckboxListeners();
                 processValues(values2)
             })
-            .catch(error => console.error('Error loading calendar.html:', error));
+            .catch(error => console.error('Error loading preset.html:', error));
             
     });
 
