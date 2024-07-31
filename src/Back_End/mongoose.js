@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // Replace the following with your MongoDB connection string
-const uri = 'your-mongodb-connection-string';
+const uri = 'mongodb+srv://user2:Karl.yammine11@padel0.ijw0irn.mongodb.net/?retryWrites=true&w=majority&appName=Padel0';
 
 const connectDB = async () => {
   try {
