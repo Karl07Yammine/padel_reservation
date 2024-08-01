@@ -21,12 +21,12 @@
                     <p class="text-white-50 mb-5">Please enter your login and password!</p>
                     <form action="/signin" method="post">        
                       <div data-mdb-input-init class="form-outline form-white mb-4">
-                        <input type="email" id="typeEmailX" class="form-control form-control-lg" />
-                        <label class="form-label" for="typeEmailX">Username</label>
+                        <input type="string" name="username" id="typeUsernameX" class="form-control form-control-lg" />
+                        <label class="form-label" for="typeUsernameX">Username</label>
                       </div>
         
                       <div data-mdb-input-init class="form-outline form-white mb-4">
-                        <input type="password" id="typePasswordX" class="form-control form-control-lg" />
+                        <input type="password" name="password" id="typePasswordX" class="form-control form-control-lg" />
                         <label class="form-label" for="typePasswordX">Password</label>
                       </div>
                       <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>

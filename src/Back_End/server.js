@@ -1,9 +1,12 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const connectDB = require('./mongoose');
 const UserModel = require('./models/user');
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
 
 const app = express();
 const port = 3000;
@@ -22,6 +25,19 @@ app.get('/sin', (req, res) => {
 });
 
 
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  cookie: { secure: false, httpOnly: true }, // Set secure to true if using HTTPS
+  store: MongoStore.create({
+    mongoUrl: process.env.MONGO_URI,
+    collectionName: 'sessions'
+  })
+}));
+
+
+
 
 app.post("/signup", async (req, res) => {
   try {
@@ -38,12 +54,48 @@ app.post("/signup", async (req, res) => {
     const savedDoc = await UserDoc.save();
     console.log('User saved to MongoDB:', savedDoc);
 
-    // Respond with the saved document
-    res.status(201).json(savedDoc);
+
+    const loginPath = path.join(frontEndPath, 'signin.html');
+    res.sendFile(loginPath);
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: "Internal Server Error" });
   }
+});
+
+
+app.post("/signin", async (req, res) => {
+  try {
+    const { username, password } = req.body;
+
+    // Check if the username exists
+    const existingUser = await UserModel.findOne({ username: username });
+    if (!existingUser || existingUser.password !== password) {
+      return res.status(400).json({ error: "Invalid username or password" });
+    }
+
+    // Save username in session
+    req.session.username = username;
+
+    const calendarPath = path.join(frontEndPath, 'calendar.html');
+    res.sendFile(calendarPath);
+    console.log("loaded calendar");
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+
+
+app.post("/logout", (req, res) => {
+  req.session.destroy(err => {
+    if (err) {
+      return res.status(500).json({ error: "Logout failed" });
+    }
+    res.clearCookie('connect.sid'); // Name of the session ID cookie
+    res.status(200).json({ message: "Logged out successfully" });
+  });
 });
 
 
