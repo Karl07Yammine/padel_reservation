@@ -6,17 +6,9 @@ const WeekSchema = new mongoose.Schema({
     required: true,
   },
   reserved: {
-    type: Number,
+    type: Array,
     required: true,
-  },
-  startDate: {
-    type: Date,
-    required: true,
-  },
-  endDate: {
-    type: Date,
-    required: true,
-  },
+  }
 });
 
 const WeekModel = mongoose.model('Week', WeekSchema);

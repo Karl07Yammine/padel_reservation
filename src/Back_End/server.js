@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const connectDB = require('./mongoose');
 const UserModel = require('./models/user');
+const WeekModel = require('./models/week')
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
@@ -16,6 +17,7 @@ connectDB();
 // Serve static files from the 'Front End' directory
 const frontEndPath = path.join(__dirname, "..", 'Front_End');
 app.use(express.static(frontEndPath));
+app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Define a route for the root
@@ -88,6 +90,8 @@ app.post("/signin", async (req, res) => {
 
 
 
+
+
 app.post("/logout", (req, res) => {
   req.session.destroy(err => {
     if (err) {
@@ -108,7 +112,28 @@ app.post('/c1', (req, res) => {
     checkedCheckboxes.push(key);
   }
 
-  res.send(`Checked checkboxes: ${checkedCheckboxes.join(', ')}`);
+  const weekCode = 'W24-08-12-18'; // Example weekCode
+
+  WeekModel.findOneAndUpdate(
+    { weekCode: weekCode }, // Filter: Find the document with this weekCode
+    {
+      $push: {
+        reserved: { $each: checkedCheckboxes }
+      }
+    },
+    {
+      new: true, // Return the updated document
+      upsert: true // Create a new document if it doesn't exist
+    }
+  )
+  .then((result) => {
+    console.log('Week document:', result);
+    res.send({ success: true, message: 'Week document updated successfully', data: result });
+  })
+  .catch((error) => {
+    console.error('Error updating or creating the week document:', error);
+    res.status(500).send({ success: false, message: 'An error occurred while updating the week document', error: error.message });
+  });
 });
 
 
@@ -116,6 +141,51 @@ app.get('/sup', (req, res) => {
   const signupPath = path.join(frontEndPath, 'signup.html');
   res.sendFile(signupPath);
 })
+
+
+app.post('/checkWeekCode', (req, res) => {
+  const { weekCode } = req.body;
+
+  WeekModel.findOne({ weekCode: weekCode })
+      .then(existingWeek => {
+          if (existingWeek) {
+              res.json({ reserved: existingWeek.reserved }); // Return only the 'reserved' array
+          } else {
+              const newWeek = new WeekModel({
+                  weekCode: weekCode,
+                  reserved: [] // Initialize reserved as an empty array
+              });
+
+              newWeek.save()
+                  .then(savedWeek => {
+                      res.json({ reserved: savedWeek.reserved }); // Return the 'reserved' array of the newly created document
+                  })
+                  .catch(error => {
+                      console.error('Error creating new week:', error);
+                      res.status(500).json({ error: 'Error creating new week' });
+                  });
+          }
+      })
+      .catch(error => {
+          console.error('Error finding week:', error);
+          res.status(500).json({ error: 'Error finding week' });
+      });
+});
+
+
+// app.post('/checkWeekCode', (req, res) => {
+//   console.log('Request body:', req.body); // Log the request body
+
+//   const { weekCode } = req.body;
+
+//   if (!weekCode) {
+//       return res.status(400).json({ error: 'weekCode is required' });
+//   }
+
+//   // Rest of the logic...
+// });
+
+
 
 
 

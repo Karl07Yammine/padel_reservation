@@ -6,7 +6,7 @@ const Week2Schema = new mongoose.Schema({
     required: true,
   },
   reserved: {
-    type: Number,
+    type: Array,
     required: true,
   },
   startDate: {
