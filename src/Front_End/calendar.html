@@ -10,6 +10,9 @@
     
 <body>
     <div class="container-fluid">
+        <div id="loading-screen">
+            <div class="loading-spinner"></div>
+        </div>
         <div class="row top-bar">
         </div>
 
@@ -18,10 +21,18 @@
                 <p class="buttons">&lt;</p>
             </div>
             <div class="col-10">
-                <p class="text-center">WEEK OF 16 - 23</p>
+                <p class="text-center week_name"></p>
             </div>
             <div class="col-1 nextweek">
                 <p class="buttons">&gt;</p>
+            </div>
+        </div>
+        <div class="button-container">
+            <div class="button court-select">
+                <p>Court 1</p>
+            </div>
+            <div class="button">
+                <p>Court 2</p>
             </div>
         </div>
         <div class="calendar">
@@ -31,7 +42,7 @@
 
                     </div>
                     <div class="col-2">
-                        <button>Reserve</button>
+                        <button onclick="showLoadingScreen()">Reserve</button>
                     </div>
                 </div>
                 <div class="row days">

@@ -8,17 +8,9 @@ const Week2Schema = new mongoose.Schema({
   reserved: {
     type: Array,
     required: true,
-  },
-  startDate: {
-    type: Date,
-    required: true,
-  },
-  endDate: {
-    type: Date,
-    required: true,
-  },
+  }
 });
 
-const Week2Model = mongoose.model('Week', Week2Schema);
+const Week2Model = mongoose.model('Week2', Week2Schema);
 
 module.exports = Week2Model;

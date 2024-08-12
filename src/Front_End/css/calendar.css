@@ -79,3 +79,77 @@ accent-color: green;
     font-weight: bolder;
     height: 2.5vw;
 }
+
+
+.button-container {
+    display: flex;
+    width: fit-content; /* Adjusts the container to fit its content */
+    border: 2px solid black; /* Border around the entire button container */
+    border-radius: 25px; /* Rounds the corners */
+    overflow: hidden; /* Ensures the border radius applies to children */
+}
+
+.button {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    border-right: 2px solid black; /* Adds a divider between the buttons */
+    background-color: #a6d1dc; /* Background color for buttons */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    transition: background-color 0.3s ease; /* Adds smooth transition for background color */
+}
+
+.button:hover {
+    background-color: #e0e0e0; /* Optional: Slightly darken the background on hover */
+}
+
+.button:last-child {
+    border-right: none; /* Removes the divider after the last button */
+}
+
+.button p {
+    margin: 0;
+    font-weight: bold;
+    color: white;
+}
+
+.court-select{
+    background-color: #007bff;
+}
+.text-select{
+    color: white;
+}
+
+
+
+
+/* Style for the loading screen overlay */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8); /* Light color with opacity to blur the background */
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it sits above other elements */
+    backdrop-filter: blur(5px); /* Apply a blur effect to the background */
+}
+
+/* Loading spinner (animation) */
+.loading-spinner {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+/* Animation for the spinner */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
