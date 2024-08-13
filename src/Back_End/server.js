@@ -11,6 +11,7 @@ const ReservationModel = require('./models/reservation');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 let court = true;
+let reservationId = null;
 
 const app = express();
 const port = 3000;
@@ -22,6 +23,11 @@ const frontEndPath = path.join(__dirname, "..", 'Front_End');
 app.use(express.static(frontEndPath));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// Set the view engine to EJS
+app.set('view engine', 'ejs');
+// Specify the directory where your EJS templates are located
+app.set('views', path.join(__dirname, 'templates'));
 
 // Define a route for the root
 app.get('/sin', (req, res) => {
@@ -57,7 +63,6 @@ app.post("/signup", async (req, res) => {
     // Create a new user document
     const UserDoc = new UserModel({ name, famname, username, number, BirthDate, password });
     const savedDoc = await UserDoc.save();
-    console.log('User saved to MongoDB:', savedDoc);
 
 
     const loginPath = path.join(frontEndPath, 'signin.html');
@@ -84,7 +89,6 @@ app.post("/signin", async (req, res) => {
 
     const calendarPath = path.join(frontEndPath, 'calendar.html');
     res.sendFile(calendarPath);
-    console.log("loaded calendar");
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: "Internal Server Error" });
@@ -117,18 +121,24 @@ app.post('/c1', (req, res) => {
 
   if (court) {
     const newReservation = new ReservationModel({
-      user: req.session.username,             // Replace with the actual user
-      reserve_week: weekcd,  // Replace with the actual week codes
-      reserve: checkedCheckboxes,  // Replace with the actual reservation time
-      court: 'Court 1'             // Replace with the actual court name or number
-  });
-  newReservation.save()
-    .then((savedReservation) => {
-        console.log('Reservation saved successfully:', savedReservation);
-    })
-    .catch((error) => {
-        console.error('Error saving reservation:', error);
+        user: req.session.username,          // Replace with the actual user
+        reserve_week: weekcd,                // Replace with the actual week codes
+        reserve: checkedCheckboxes,          // Replace with the actual reservation time
+        court: 'Court 1'                     // Replace with the actual court name or number
     });
+
+    newReservation.save()
+        .then((savedReservation) => {
+            
+            // Save the reservation id into a variable
+            reservationId = savedReservation._id;
+
+            // You can now use reservationId in your code as needed
+        })
+        .catch((error) => {
+            console.error('Error saving reservation:', error);
+        });
+
 
 
     WeekModel.findOneAndUpdate(
@@ -144,8 +154,14 @@ app.post('/c1', (req, res) => {
       }
     )
     .then((result) => {
-      console.log('Week document:', result);
-      res.send({ success: true, message: 'Week document updated successfully', data: result });
+      const template = {
+        username: req.session.username,
+        court: "Court 1",
+        time: convertTimeCodesToInterval(checkedCheckboxes),
+        week: weekcd,
+        reservationsId: reservationId
+      }
+      res.render("confirmation", template);
     })
     .catch((error) => {
       console.error('Error updating or creating the week document:', error);
@@ -160,7 +176,9 @@ app.post('/c1', (req, res) => {
   });
   newReservation.save()
     .then((savedReservation) => {
-        console.log('Reservation saved successfully:', savedReservation);
+            
+        // Save the reservation id into a variable
+        reservationId = savedReservation._id;
     })
     .catch((error) => {
         console.error('Error saving reservation:', error);
@@ -180,8 +198,14 @@ app.post('/c1', (req, res) => {
       }
     )
     .then((result) => {
-      console.log('Week document:', result);
-      res.send({ success: true, message: 'Week document updated successfully', data: result });
+      const template = {
+        username: req.session.username,
+        court: "Court 2",
+        time: convertTimeCodesToInterval(checkedCheckboxes),
+        week: weekcd,
+        reservationsId: reservationId
+      }
+      res.render("confirmation", template);
     })
     .catch((error) => {
       console.error('Error updating or creating the week document:', error);
@@ -265,6 +289,12 @@ app.post('/checkWeekCode2', (req, res) => {
 
 
 
+app.post('/cancel-reservation', (req, res) => {
+  const { reservationId } = req.body; // Correct destructuring of reservationId from req.body
+  processReservationById(reservationId);
+  res.write("successfully canceled");
+  res.send();
+});
 
 
 
@@ -273,3 +303,93 @@ app.post('/checkWeekCode2', (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
+
+
+
+
+async function processReservationById(reservationId) {
+  try {
+      // Step 1: Retrieve the reservation by ID
+      const reservation = await ReservationModel.findById(reservationId).exec();
+      if (!reservation) {
+          console.log('Reservation not found.');
+          return;
+      }
+
+      // Step 2: Extract the relevant data
+      const { reserve_week, reserve, court } = reservation;
+      // Step 3: Delete the reservation
+      await ReservationModel.deleteOne({ _id: reservation._id });
+
+      // Step 4: Determine which week model to update based on the court
+      const WeekModelToUpdate = court === 'Court 1' ? WeekModel : Week2Model;
+
+      await WeekModelToUpdate.findOneAndUpdate(
+          { weekCode: reserve_week },
+          { $pullAll: { reserved: reserve } }, // Remove all matching reserve items from the reserved array
+          { new: true } // Return the updated document
+      );
+
+      console.log('Reservation processed and corresponding data removed from the Week schema successfully.');
+  } catch (error) {
+      console.error('Error processing the reservation:', error);
+  }
+}
+
+
+
+function convertTimeCodesToInterval(timeCodes) {
+  // Mapping from day abbreviations to full names
+  const dayNames = {
+      'M': 'Monday',
+      'T': 'Tuesday',
+      'W': 'Wednesday',
+      'TH': 'Thursday',
+      'F': 'Friday',
+      'S': 'Saturday',
+      'SU': 'Sunday'
+  };
+
+  // Function to convert military time to standard time
+  function convertToStandardTime(time) {
+      let hour = parseInt(time.slice(0, 2));
+      let minutes = time.slice(2);
+      let ampm = hour >= 12 ? 'PM' : 'AM';
+      hour = hour % 12 || 12; // Convert to 12-hour format
+      return `${hour}:${minutes} ${ampm}`;
+  }
+
+  // Function to add 30 minutes to the time
+  function addThirtyMinutes(time) {
+      let hour = parseInt(time.slice(0, 2));
+      let minutes = parseInt(time.slice(2));
+
+      minutes += 30;
+
+      if (minutes >= 60) {
+          minutes -= 60;
+          hour += 1;
+      }
+
+      return `${hour.toString().padStart(2, '0')}${minutes.toString().padStart(2, '0')}`;
+  }
+
+  if (timeCodes.length === 0) {
+      return '';
+  }
+
+  // Extract day and times
+  const dayCode = timeCodes[0].slice(0, timeCodes[0].length - 4); // Get the day part (e.g., 'S' for Saturday)
+  const times = timeCodes.map(code => code.slice(code.length - 4)); // Get the time parts (e.g., '0900')
+
+  // Convert start and end times to readable format
+  const startTime = convertToStandardTime(times[0]);
+  const endTime = convertToStandardTime(addThirtyMinutes(times[times.length - 1])); // Correctly add 30 minutes
+
+  // Get the full day name
+  const dayName = dayNames[dayCode];
+
+  // Combine into final interval string
+  const interval = `${dayName} ${startTime} -> ${endTime}`;
+  return interval;
+}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation Confirmation</title>
+</head>
+<body>
+    <h1>Reservation Confirmed</h1>
+    <p>Thank you, <%= username %>! Your reservation for <%= court %> for <%= week %> on <%= time %> has been confirmed.</p>
+
+    <form action="/cancel-reservation" method="POST" style="display: inline;">
+        <input type="hidden" name="reservationId" value="<%= reservationsId %>">
+        <button type="submit">Cancel Reservation</button>
+    </form>
+
+    <a href="/">Go to Home</a>
+</body>
+</html>
