@@ -118,101 +118,92 @@ app.post('/c1', (req, res) => {
   for (const key in req.body) {
     checkedCheckboxes.push(key);
   }
+  // Check if the array is empty
+  if (checkedCheckboxes.length === 0) {
+    return res.status(400).send({ success: false, message: 'No checkboxes selected. Please select at least one time slot.' });
+  }
 
   if (court) {
     const newReservation = new ReservationModel({
-        user: req.session.username,          // Replace with the actual user
-        reserve_week: weekcd,                // Replace with the actual week codes
-        reserve: checkedCheckboxes,          // Replace with the actual reservation time
-        court: 'Court 1'                     // Replace with the actual court name or number
+      user: req.session.username,
+      reserve_week: weekcd,
+      reserve: checkedCheckboxes,
+      court: 'Court 1'
     });
 
     newReservation.save()
-        .then((savedReservation) => {
-            
-            // Save the reservation id into a variable
-            reservationId = savedReservation._id;
+      .then((savedReservation) => {
+        const reservationId = savedReservation._id; // Store the ID locally
 
-            // You can now use reservationId in your code as needed
-        })
-        .catch((error) => {
-            console.error('Error saving reservation:', error);
+        return WeekModel.findOneAndUpdate(
+          { weekCode: weekcd },
+          {
+            $push: {
+              reserved: { $each: checkedCheckboxes }
+            }
+          },
+          {
+            new: true, // Return the updated document
+            upsert: true // Create a new document if it doesn't exist
+          }
+        )
+        .then((result) => {
+          const template = {
+            username: req.session.username,
+            court: "Court 1",
+            time: convertTimeCodesToInterval(checkedCheckboxes),
+            week: weekcd,
+            reservationId: reservationId // Use the locally stored ID
+          };
+          res.render("confirmation", template);
         });
-
-
-
-    WeekModel.findOneAndUpdate(
-      { weekCode: weekcd }, // Filter: Find the document with this weekCode
-      {
-        $push: {
-          reserved: { $each: checkedCheckboxes }
-        }
-      },
-      {
-        new: true, // Return the updated document
-        upsert: true // Create a new document if it doesn't exist
-      }
-    )
-    .then((result) => {
-      const template = {
-        username: req.session.username,
-        court: "Court 1",
-        time: convertTimeCodesToInterval(checkedCheckboxes),
-        week: weekcd,
-        reservationsId: reservationId
-      }
-      res.render("confirmation", template);
-    })
-    .catch((error) => {
-      console.error('Error updating or creating the week document:', error);
-      res.status(500).send({ success: false, message: 'An error occurred while updating the week document', error: error.message });
-    });
-  }else if (!court) {
+      })
+      .catch((error) => {
+        console.error('Error saving reservation or updating week document:', error);
+        res.status(500).send({ success: false, message: 'An error occurred while processing the reservation', error: error.message });
+      });
+  } else if (!court) {
     const newReservation = new ReservationModel({
-      user: req.session.username,             // Replace with the actual user
-      reserve_week: weekcd,  // Replace with the actual week codes
-      reserve: checkedCheckboxes,  // Replace with the actual reservation time
-      court: 'Court 2'             // Replace with the actual court name or number
-  });
-  newReservation.save()
-    .then((savedReservation) => {
-            
-        // Save the reservation id into a variable
-        reservationId = savedReservation._id;
-    })
-    .catch((error) => {
-        console.error('Error saving reservation:', error);
+      user: req.session.username,
+      reserve_week: weekcd,
+      reserve: checkedCheckboxes,
+      court: 'Court 2'
     });
 
+    newReservation.save()
+      .then((savedReservation) => {
+        const reservationId = savedReservation._id; // Store the ID locally
 
-    Week2Model.findOneAndUpdate(
-      { weekCode: weekcd }, // Filter: Find the document with this weekCode
-      {
-        $push: {
-          reserved: { $each: checkedCheckboxes }
-        }
-      },
-      {
-        new: true, // Return the updated document
-        upsert: true // Create a new document if it doesn't exist
-      }
-    )
-    .then((result) => {
-      const template = {
-        username: req.session.username,
-        court: "Court 2",
-        time: convertTimeCodesToInterval(checkedCheckboxes),
-        week: weekcd,
-        reservationsId: reservationId
-      }
-      res.render("confirmation", template);
-    })
-    .catch((error) => {
-      console.error('Error updating or creating the week document:', error);
-      res.status(500).send({ success: false, message: 'An error occurred while updating the week document', error: error.message });
-    });
+        return Week2Model.findOneAndUpdate(
+          { weekCode: weekcd },
+          {
+            $push: {
+              reserved: { $each: checkedCheckboxes }
+            }
+          },
+          {
+            new: true, // Return the updated document
+            upsert: true // Create a new document if it doesn't exist
+          }
+        )
+        .then((result) => {
+          const template = {
+            username: req.session.username,
+            court: "Court 2",
+            time: convertTimeCodesToInterval(checkedCheckboxes),
+            week: weekcd,
+            reservationId: reservationId // Use the locally stored ID
+          };
+          res.render("confirmation", template);
+        });
+      })
+      .catch((error) => {
+        console.error('Error saving reservation or updating week document:', error);
+        res.status(500).send({ success: false, message: 'An error occurred while processing the reservation', error: error.message });
+      });
   }
 });
+
 
 
 app.get('/sup', (req, res) => {

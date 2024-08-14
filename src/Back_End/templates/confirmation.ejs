@@ -10,7 +10,7 @@
     <p>Thank you, <%= username %>! Your reservation for <%= court %> for <%= week %> on <%= time %> has been confirmed.</p>
 
     <form action="/cancel-reservation" method="POST" style="display: inline;">
-        <input type="hidden" name="reservationId" value="<%= reservationsId %>">
+        <input type="hidden" name="reservationId" value="<%= reservationId %>">
         <button type="submit">Cancel Reservation</button>
     </form>
 

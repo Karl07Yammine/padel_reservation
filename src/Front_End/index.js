@@ -4,7 +4,7 @@ function processValues(valuesArray) {
     valuesArray.forEach(className => {
         const elements = document.getElementsByClassName(className);
         for (let element of elements) {
-            element.style.backgroundColor = "red";
+            element.style.backgroundColor = "#556485";
             element.innerHTML = '';
         }
     });
@@ -113,26 +113,18 @@ nextWeekButton.addEventListener("click", function() {
 });
 
 
-// Function to handle the checkbox change event
-function handleCheckboxChange(event) {
-    const checkbox = event.target;
-    const div = checkbox.closest('.col-3');
-
-    if (checkbox.checked) {
-        div.classList.add('checked');
-    } else {
-        div.classList.remove('checked');
-    }
-}
 
 // Initialize event listeners for all checkboxes
 function initializeCheckboxListeners() {
-    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-
-    checkboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', handleCheckboxChange);
+    document.querySelectorAll('.custom-checkbox').forEach(function(checkboxDiv) {
+        checkboxDiv.addEventListener('click', function() {
+            const checkbox = this.querySelector('input[type="checkbox"]');
+            checkbox.checked = !checkbox.checked;
+        });
     });
+    
 }
+
 
 
 

@@ -1,110 +1,113 @@
-html{
-    padding:0 5vw ;
-    font-size: 1.25vw;
+html {
+    padding: 1rem 5rem; /* Adjusted to rem for consistent spacing */
+    font-size: 1.25rem; /* Adjusted to rem for consistent font sizing */
+    background-image: url(../background.png);
+    background-size: cover; /* Scale the image to cover the entire element */
+    background-position: center; /* Center the image */
 }
 
-.week-bar{
-    height: 2.5vw;
-    border-radius: 0.5vw;
-    border: 1px solid black;
-    margin-bottom: 2vw;
+
+
+.week-bar {
+    height: 2.2rem; /* Adjusted to rem */
+    border-radius: 1.5rem; /* Adjusted to rem */
+    border: 2px solid #2f528f;
+    margin-bottom: 2rem; /* Adjusted to rem */
+    color: white;
+    background-color: #8faadc;
 }
 
-.days{
-    background-color: lightblue;
-    border-radius: 0.5vw 0.5vw 0 0;
-    border: 1px solid gray;
-    height: 2vw;
+.days {
+    border: 2px solid #4472c4;
+    height: 2rem; /* Adjusted to rem */
+    color: #203864;
+    font-weight: bold;
+    border-radius: 0.5rem 0.5rem 0 0;
 }
 
-.col-3{
-    height: 2vw;
+.col-3 {
+    height: 2rem; /* Adjusted to rem */
 }
 
-.right-border{
+.right-border {
     border-right: 1px solid gray;
 }
 
-.boxes{
+.boxes {
     border: 1px solid gray;
     border-top: none;
-    height: 4vw;
+    height: 2rem; /* Adjusted to rem */
 }
 
 
-.b{
-    height: 4vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+
+
+
+.bottom {
+    border-radius: 0 0 0.5rem 0.5rem; /* Adjusted to rem */
 }
 
-input[type="checkbox"]{
-height: 1.5vw;
-width: 1.5vw;
-accent-color: green;
+.SU2330 {
+    border-radius: 0 0 0.5rem 0; /* Adjusted to rem */
 }
 
-.checked{
-    background-color: green;
-}
-
-.bottom{
-    border-radius: 0 0 0.5vw 0.5vw;
-}
-
-.SU2330{
-    border-radius: 0 0 0.5vw 0;
-}
-
-.buttons{
-    font-size: 2.5vw;
+.buttons {
+    font-size: 2.5rem; /* Adjusted to rem */
     padding: 0;
     margin: 0;
     cursor: default;
-    margin-top: -0.45vw;
+    margin-top: -0.45rem; /* Adjusted to rem */
 }
 
-.col-1{
+.col-1:nth-child(1) {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 0.5vw 0.5vw 0.5vw 0.5vw;
+    border-radius: 1.5rem 0 0 1.5rem; /* Adjusted to rem */
     height: 100%;
-    background-color: rgb(157, 215, 234);
 }
 
-.col-10{
-    font-size: 1.25vw;
+.col-1:nth-child(3) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 1.5rem 1.5rem 0; /* Adjusted to rem */
+    height: 100%;
+}
+
+.col-10 {
+    font-size: 1.25rem; /* Adjusted to rem */
     font-weight: bolder;
-    height: 2.5vw;
+    height: 2rem; /* Adjusted to rem */
+    border-radius: 1.5rem; /* Adjusted to rem */
+    background-color: #495579;
 }
-
 
 .button-container {
     display: flex;
-    width: fit-content; /* Adjusts the container to fit its content */
-    border: 2px solid black; /* Border around the entire button container */
-    border-radius: 25px; /* Rounds the corners */
-    overflow: hidden; /* Ensures the border radius applies to children */
+    width: fit-content;
+    border: 2px solid black;
+    border-radius: 25px;
+    overflow: hidden;
 }
 
 .button {
     flex: 1;
     padding: 10px;
     text-align: center;
-    border-right: 2px solid black; /* Adds a divider between the buttons */
-    background-color: #a6d1dc; /* Background color for buttons */
-    cursor: pointer; /* Changes cursor to pointer on hover */
-    transition: background-color 0.3s ease; /* Adds smooth transition for background color */
+    border-right: 2px solid black;
+    background-color: #495579;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .button:hover {
-    background-color: #e0e0e0; /* Optional: Slightly darken the background on hover */
+    background-color: #8faadc;
 }
 
 .button:last-child {
-    border-right: none; /* Removes the divider after the last button */
+    border-right: none;
 }
 
 .button p {
@@ -113,15 +116,13 @@ accent-color: green;
     color: white;
 }
 
-.court-select{
-    background-color: #007bff;
+.court-select {
+    background-color: #667fb5;
 }
-.text-select{
+
+.text-select {
     color: white;
 }
-
-
-
 
 /* Style for the loading screen overlay */
 #loading-screen {
@@ -130,18 +131,18 @@ accent-color: green;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.8); /* Light color with opacity to blur the background */
-    display: none; /* Hidden by default */
+    background: rgba(255, 255, 255, 0.8);
+    display: none;
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* Ensure it sits above other elements */
-    backdrop-filter: blur(5px); /* Apply a blur effect to the background */
+    z-index: 1000;
+    backdrop-filter: blur(5px);
 }
 
 /* Loading spinner (animation) */
 .loading-spinner {
-    border: 16px solid #f3f3f3; /* Light grey */
-    border-top: 16px solid #3498db; /* Blue */
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
     border-radius: 50%;
     width: 120px;
     height: 120px;
@@ -152,4 +153,46 @@ accent-color: green;
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+
+.custom-checkbox {
+    height: 1.9rem;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2rem;
+}
+
+.custom-checkbox input[type="checkbox"] {
+    display: none;
+}
+
+.custom-checkbox .dot {
+    width: 1rem;
+    height: 1rem;
+    background-color: #cf0;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none; /* Hide the dot by default */
+}
+
+.custom-checkbox input[type="checkbox"]:checked ~ .dot {
+    display: block; /* Show the dot when the checkbox is checked */
+}
+
+/* Prevent caret from appearing on focusable elements */
+.custom-checkbox input:focus {
+    outline: none; /* Remove the focus outline */
+    caret-color: transparent; /* Hide the caret */
+}
+
+.bg{
+    background-color: rgba(146, 183, 255, 0.35);
 }
