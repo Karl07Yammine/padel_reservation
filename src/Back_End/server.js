@@ -50,6 +50,13 @@ app.use(session({
 
 let weekcd = null;
 
+app.post("/", async (req, res) => {
+    const indexPath = path.join(frontEndPath, 'index.html');
+    res.sendFile(indexPath);
+});
+
+
+
 app.post("/signup", async (req, res) => {
   try {
     const { name, famname, username, number, BirthDate, password } = req.body;
@@ -96,9 +103,6 @@ app.post("/signin", async (req, res) => {
 });
 
 
-
-
-
 app.post("/logout", (req, res) => {
   req.session.destroy(err => {
     if (err) {
@@ -120,7 +124,9 @@ app.post('/c1', (req, res) => {
   }
   // Check if the array is empty
   if (checkedCheckboxes.length === 0) {
-    return res.status(400).send({ success: false, message: 'No checkboxes selected. Please select at least one time slot.' });
+    const calendarPath = path.join(frontEndPath, 'calendar.html');
+    res.sendFile(calendarPath);
+    return
   }
 
   if (court) {
