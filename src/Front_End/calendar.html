@@ -9,1052 +9,1426 @@
 </head>
     
 <body>
-    <div class="container-fluid">
-        <div id="loading-screen">
-            <div class="loading-spinner"></div>
-        </div>
-        <div class="row top-bar">
-        </div>
-
-        <div class="row week-bar">
-            <div class="col-1 previousweek">
-                <p class="buttons">&lt;</p>
+        <div class="desktop container-fluid">
+            <div id="loading-screen">
+                <div class="loading-spinner"></div>
             </div>
-            <div class="col-10">
-                <p class="text-center week_name"></p>
+            <div class="row top-bar">
             </div>
-            <div class="col-1 nextweek">
-                <p class="buttons">&gt;</p>
+    
+            <div class="row week-bar">
+                <div class="col-1 previousweek">
+                    <p class="buttons">&lt;</p>
+                </div>
+                <div class="col-10">
+                    <p class="text-center week_name"></p>
+                </div>
+                <div class="col-1 nextweek">
+                    <p class="buttons">&gt;</p>
+                </div>
+            </div>
+            <div class="button-container">
+                <div class="button court-select">
+                    <p>Court 1</p>
+                </div>
+                <div class="button">
+                    <p>Court 2</p>
+                </div>
+            </div>
+            <div class="calendar">
+                <form action="/c1" method="post">
+                    <div class="row">
+                        <div class="col-10" style="background-color: transparent;">
+    
+                        </div>
+                        <div class="col-2">
+                            <button onclick="showLoadingScreen()">Reserve</button>
+                        </div>
+                    </div>
+                    <div class="row days">
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3">Time</div>
+                                <div class="col-3">Mon</div>
+                                <div class="col-3">Tue</div>
+                                <div class="col-3">Wed</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3">Thu</div>
+                                <div class="col-3">Fri</div>
+                                <div class="col-3">Sat</div>
+                                <div class="col-3">Sun</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row boxes bg">
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b time">9:00 -> 9:30am</div>
+                                <div class="col-3 b custom-checkbox  M0900">
+                                    <input id="checkbox" type="checkbox" name="M0900">
+                                </div>
+                                <div class="col-3 b custom-checkbox  T0900">
+                                    <input id="checkbox" type="checkbox" name="T0900">
+                                </div>
+                                <div class="col-3 b custom-checkbox  W0900">
+                                    <input id="checkbox" type="checkbox" name="W0900">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b custom-checkbox  TH0900">
+                                    <input id="checkbox" type="checkbox" name="TH0900">
+                                </div>
+                                <div class="col-3 b custom-checkbox  F0900">
+                                    <input id="checkbox" type="checkbox" name="F0900">
+                                </div>
+                                <div class="col-3 b custom-checkbox  S0900">
+                                    <input id="checkbox" type="checkbox" name="S0900">
+                                </div>
+                                <div class="col-3 b custom-checkbox  SU0900">
+                                    <input id="checkbox" type="checkbox" name="SU0900">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row boxes">
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b time">9:30 -> 10:00a.m.</div>
+                                <div class="col-3 b custom-checkbox  M0930">
+                                    <input id="checkbox" type="checkbox" name="M0930">
+                                </div>
+                                <div class="col-3 b custom-checkbox  T0930">
+                                    <input id="checkbox" type="checkbox" name="T0930">
+                                </div>
+                                <div class="col-3 b custom-checkbox  W0930">
+                                    <input id="checkbox" type="checkbox" name="W0930">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b custom-checkbox  TH0930">
+                                    <input id="checkbox" type="checkbox" name="TH0930">
+                                </div>
+                                <div class="col-3 b custom-checkbox  F0930">
+                                    <input id="checkbox" type="checkbox" name="F0930">
+                                </div>
+                                <div class="col-3 b custom-checkbox  S0930">
+                                    <input id="checkbox" type="checkbox" name="S0930">
+                                </div>
+                                <div class="col-3 b custom-checkbox  SU0930">
+                                    <input id="checkbox" type="checkbox" name="SU0930">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row boxes bg">
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b time">10:00 a.m.</div>
+                                <div class="col-3 b custom-checkbox  M1000">
+                                    <input id="checkbox" type="checkbox" name="M1000">
+                                </div>
+                                <div class="col-3 b custom-checkbox  T1000">
+                                    <input id="checkbox" type="checkbox" name="T1000">
+                                </div>
+                                <div class="col-3 b custom-checkbox  W1000">
+                                    <input id="checkbox" type="checkbox" name="W1000">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b custom-checkbox  TH1000">
+                                    <input id="checkbox" type="checkbox" name="TH1000">
+                                </div>
+                                <div class="col-3 b custom-checkbox  F1000">
+                                    <input id="checkbox" type="checkbox" name="F1000">
+                                </div>
+                                <div class="col-3 b custom-checkbox  S1000">
+                                    <input id="checkbox" type="checkbox" name="S1000">
+                                </div>
+                                <div class="col-3 b custom-checkbox  SU1000">
+                                    <input id="checkbox" type="checkbox" name="SU1000">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row boxes">
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b time">10:30 a.m.</div>
+                                <div class="col-3 b custom-checkbox  M1030">
+                                    <input id="checkbox" type="checkbox" name="M1030">
+                                </div>
+                                <div class="col-3 b custom-checkbox  T1030">
+                                    <input id="checkbox" type="checkbox" name="T1030">
+                                </div>
+                                <div class="col-3 b custom-checkbox  W1030">
+                                    <input id="checkbox" type="checkbox" name="W1030">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b custom-checkbox  TH1030">
+                                    <input id="checkbox" type="checkbox" name="TH1030">
+                                </div>
+                                <div class="col-3 b custom-checkbox  F1030">
+                                    <input id="checkbox" type="checkbox" name="F1030">
+                                </div>
+                                <div class="col-3 b custom-checkbox  S1030">
+                                    <input id="checkbox" type="checkbox" name="S1030">
+                                </div>
+                                <div class="col-3 b custom-checkbox  SU1030">
+                                    <input id="checkbox" type="checkbox" name="SU1030">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row boxes bg">
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b time">11:00 a.m.</div>
+                                <div class="col-3 b custom-checkbox  M1100">
+                                    <input id="checkbox" type="checkbox" name="M1100">
+                                </div>
+                                <div class="col-3 b custom-checkbox  T1100">
+                                    <input id="checkbox" type="checkbox" name="T1100">
+                                </div>
+                                <div class="col-3 b custom-checkbox  W1100">
+                                    <input id="checkbox" type="checkbox" name="W1100">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b custom-checkbox  TH1100">
+                                    <input id="checkbox" type="checkbox" name="TH1100">
+                                </div>
+                                <div class="col-3 b custom-checkbox  F1100">
+                                    <input id="checkbox" type="checkbox" name="F1100">
+                                </div>
+                                <div class="col-3 b custom-checkbox  S1100">
+                                    <input id="checkbox" type="checkbox" name="S1100">
+                                </div>
+                                <div class="col-3 b custom-checkbox  SU1100">
+                                    <input id="checkbox" type="checkbox" name="SU1100">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row boxes">
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b time">11:30 a.m.</div>
+                                <div class="col-3 b custom-checkbox  M1130">
+                                    <input id="checkbox" type="checkbox" name="M1130">
+                                </div>
+                                <div class="col-3 b custom-checkbox  T1130">
+                                    <input id="checkbox" type="checkbox" name="T1130">
+                                </div>
+                                <div class="col-3 b custom-checkbox  W1130">
+                                    <input id="checkbox" type="checkbox" name="W1130">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b custom-checkbox  TH1130">
+                                    <input id="checkbox" type="checkbox" name="TH1130">
+                                </div>
+                                <div class="col-3 b custom-checkbox  F1130">
+                                    <input id="checkbox" type="checkbox" name="F1130">
+                                </div>
+                                <div class="col-3 b custom-checkbox  S1130">
+                                    <input id="checkbox" type="checkbox" name="S1130">
+                                </div>
+                                <div class="col-3 b custom-checkbox  SU1130">
+                                    <input id="checkbox" type="checkbox" name="SU1130">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row boxes bg">
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b time">12:00 p.m.</div>
+                                <div class="col-3 b custom-checkbox  M1200">
+                                    <input id="checkbox" type="checkbox" name="M1200">
+                                </div>
+                                <div class="col-3 b custom-checkbox  T1200">
+                                    <input id="checkbox" type="checkbox" name="T1200">
+                                </div>
+                                <div class="col-3 b custom-checkbox  W1200">
+                                    <input id="checkbox" type="checkbox" name="W1200">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b custom-checkbox  TH1200">
+                                    <input id="checkbox" type="checkbox" name="TH1200">
+                                </div>
+                                <div class="col-3 b custom-checkbox  F1200">
+                                    <input id="checkbox" type="checkbox" name="F1200">
+                                </div>
+                                <div class="col-3 b custom-checkbox  S1200">
+                                    <input id="checkbox" type="checkbox" name="S1200">
+                                </div>
+                                <div class="col-3 b custom-checkbox  SU1200">
+                                    <input id="checkbox" type="checkbox" name="SU1200">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row boxes">
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b time">12:30 p.m.</div>
+                                <div class="col-3 b custom-checkbox  M1230">
+                                    <input id="checkbox" type="checkbox" name="M1230">
+                                </div>
+                                <div class="col-3 b custom-checkbox  T1230">
+                                    <input id="checkbox" type="checkbox" name="T1230">
+                                </div>
+                                <div class="col-3 b custom-checkbox  W1230">
+                                    <input id="checkbox" type="checkbox" name="W1230">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b custom-checkbox  TH1230">
+                                    <input id="checkbox" type="checkbox" name="TH1230">
+                                </div>
+                                <div class="col-3 b custom-checkbox  F1230">
+                                    <input id="checkbox" type="checkbox" name="F1230">
+                                </div>
+                                <div class="col-3 b custom-checkbox  S1230">
+                                    <input id="checkbox" type="checkbox" name="S1230">
+                                </div>
+                                <div class="col-3 b custom-checkbox  SU1230">
+                                    <input id="checkbox" type="checkbox" name="SU1230">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row boxes bg">
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b time">1:00 p.m.</div>
+                                <div class="col-3 b custom-checkbox  M1300">
+                                    <input id="checkbox" type="checkbox" name="M1300">
+                                </div>
+                                <div class="col-3 b custom-checkbox  T1300">
+                                    <input id="checkbox" type="checkbox" name="T1300">
+                                </div>
+                                <div class="col-3 b custom-checkbox  W1300">
+                                    <input id="checkbox" type="checkbox" name="W1300">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b custom-checkbox  TH1300">
+                                    <input id="checkbox" type="checkbox" name="TH1300">
+                                </div>
+                                <div class="col-3 b custom-checkbox  F1300">
+                                    <input id="checkbox" type="checkbox" name="F1300">
+                                </div>
+                                <div class="col-3 b custom-checkbox  S1300">
+                                    <input id="checkbox" type="checkbox" name="S1300">
+                                </div>
+                                <div class="col-3 b custom-checkbox  SU1300">
+                                    <input id="checkbox" type="checkbox" name="SU1300">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row boxes">
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b time">1:30 p.m.</div>
+                                <div class="col-3 b custom-checkbox  M1330">
+                                    <input id="checkbox" type="checkbox" name="M1330">
+                                </div>
+                                <div class="col-3 b custom-checkbox  T1330">
+                                    <input id="checkbox" type="checkbox" name="T1330">
+                                </div>
+                                <div class="col-3 b custom-checkbox  W1330">
+                                    <input id="checkbox" type="checkbox" name="W1330">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b custom-checkbox  TH1330">
+                                    <input id="checkbox" type="checkbox" name="TH1330">
+                                </div>
+                                <div class="col-3 b custom-checkbox  F1330">
+                                    <input id="checkbox" type="checkbox" name="F1330">
+                                </div>
+                                <div class="col-3 b custom-checkbox  S1330">
+                                    <input id="checkbox" type="checkbox" name="S1330">
+                                </div>
+                                <div class="col-3 b custom-checkbox  SU1330">
+                                    <input id="checkbox" type="checkbox" name="SU1330">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row boxes bg">
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b ">2:00 p.m.</div>
+                                <div class="col-3 b custom-checkbox  M1400">
+                                    <input id="checkbox" type="checkbox" name="M1400">
+                                </div>
+                                <div class="col-3 b custom-checkbox  T1400">
+                                    <input id="checkbox" type="checkbox" name="T1400">
+                                </div>
+                                <div class="col-3 b custom-checkbox  W1400">
+                                    <input id="checkbox" type="checkbox" name="W1400">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b custom-checkbox  TH1400">
+                                    <input id="checkbox" type="checkbox" name="TH1400">
+                                </div>
+                                <div class="col-3 b custom-checkbox  F1400">
+                                    <input id="checkbox" type="checkbox" name="F1400">
+                                </div>
+                                <div class="col-3 b custom-checkbox  S1400">
+                                    <input id="checkbox" type="checkbox" name="S1400">
+                                </div>
+                                <div class="col-3 b custom-checkbox  SU1400">
+                                    <input id="checkbox" type="checkbox" name="SU1400">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row boxes">
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b ">2:30 p.m.</div>
+                                <div class="col-3 b custom-checkbox  M1430">
+                                    <input id="checkbox" type="checkbox" name="M1430">
+                                </div>
+                                <div class="col-3 b custom-checkbox  T1430">
+                                    <input id="checkbox" type="checkbox" name="T1430">
+                                </div>
+                                <div class="col-3 b custom-checkbox  W1430">
+                                    <input id="checkbox" type="checkbox" name="W1430">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b custom-checkbox  TH1430">
+                                    <input id="checkbox" type="checkbox" name="TH1430">
+                                </div>
+                                <div class="col-3 b custom-checkbox  F1430">
+                                    <input id="checkbox" type="checkbox" name="F1430">
+                                </div>
+                                <div class="col-3 b custom-checkbox  S1430">
+                                    <input id="checkbox" type="checkbox" name="S1430">
+                                </div>
+                                <div class="col-3 b custom-checkbox  SU1430">
+                                    <input id="checkbox" type="checkbox" name="SU1430">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row boxes bg">
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b ">3:00 p.m.</div>
+                                <div class="col-3 b custom-checkbox  M1500">
+                                    <input id="checkbox" type="checkbox" name="M1500">
+                                </div>
+                                <div class="col-3 b custom-checkbox  T1500">
+                                    <input id="checkbox" type="checkbox" name="T1500">
+                                </div>
+                                <div class="col-3 b custom-checkbox  W1500">
+                                    <input id="checkbox" type="checkbox" name="W1500">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b custom-checkbox  TH1500">
+                                    <input id="checkbox" type="checkbox" name="TH1500">
+                                </div>
+                                <div class="col-3 b custom-checkbox  F1500">
+                                    <input id="checkbox" type="checkbox" name="F1500">
+                                </div>
+                                <div class="col-3 b custom-checkbox  S1500">
+                                    <input id="checkbox" type="checkbox" name="S1500">
+                                </div>
+                                <div class="col-3 b custom-checkbox  SU1500">
+                                    <input id="checkbox" type="checkbox" name="SU1500">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row boxes">
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b time">3:30 p.m.</div>
+                                <div class="col-3 b custom-checkbox  M1530">
+                                    <input id="checkbox" type="checkbox" name="M1530">
+                                </div>
+                                <div class="col-3 b custom-checkbox  T1530">
+                                    <input id="checkbox" type="checkbox" name="T1530">
+                                </div>
+                                <div class="col-3 b custom-checkbox  W1530">
+                                    <input id="checkbox" type="checkbox" name="W1530">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b custom-checkbox  TH1530">
+                                    <input id="checkbox" type="checkbox" name="TH1530">
+                                </div>
+                                <div class="col-3 b custom-checkbox  F1530">
+                                    <input id="checkbox" type="checkbox" name="F1530">
+                                </div>
+                                <div class="col-3 b custom-checkbox  S1530">
+                                    <input id="checkbox" type="checkbox" name="S1530">
+                                </div>
+                                <div class="col-3 b custom-checkbox  SU1530">
+                                    <input id="checkbox" type="checkbox" name="SU1530">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row boxes bg">
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b time">4:00 p.m.</div>
+                                <div class="col-3 b custom-checkbox  M1600">
+                                    <input id="checkbox" type="checkbox" name="M1600">
+                                </div>
+                                <div class="col-3 b custom-checkbox  T1600">
+                                    <input id="checkbox" type="checkbox" name="T1600">
+                                </div>
+                                <div class="col-3 b custom-checkbox  W1600">
+                                    <input id="checkbox" type="checkbox" name="W1600">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b custom-checkbox  TH1600">
+                                    <input id="checkbox" type="checkbox" name="TH1600">
+                                </div>
+                                <div class="col-3 b custom-checkbox  F1600">
+                                    <input id="checkbox" type="checkbox" name="F1600">
+                                </div>
+                                <div class="col-3 b custom-checkbox  S1600">
+                                    <input id="checkbox" type="checkbox" name="S1600">
+                                </div>
+                                <div class="col-3 b custom-checkbox  SU1600">
+                                    <input id="checkbox" type="checkbox" name="SU1600">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row boxes">
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b time">4:30 p.m.</div>
+                                <div class="col-3 b custom-checkbox  M1630">
+                                    <input id="checkbox" type="checkbox" name="M1630">
+                                </div>
+                                <div class="col-3 b custom-checkbox  T1630">
+                                    <input id="checkbox" type="checkbox" name="T1630">
+                                </div>
+                                <div class="col-3 b custom-checkbox  W1630">
+                                    <input id="checkbox" type="checkbox" name="W1630">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b custom-checkbox  TH1630">
+                                    <input id="checkbox" type="checkbox" name="TH1630">
+                                </div>
+                                <div class="col-3 b custom-checkbox  F1630">
+                                    <input id="checkbox" type="checkbox" name="F1630">
+                                </div>
+                                <div class="col-3 b custom-checkbox  S1630">
+                                    <input id="checkbox" type="checkbox" name="S1630">
+                                </div>
+                                <div class="col-3 b custom-checkbox  SU1630">
+                                    <input id="checkbox" type="checkbox" name="SU1630">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row boxes bg">
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b time">5:00 p.m.</div>
+                                <div class="col-3 b custom-checkbox  M1700">
+                                    <input id="checkbox" type="checkbox" name="M1700">
+                                </div>
+                                <div class="col-3 b custom-checkbox  T1700">
+                                    <input id="checkbox" type="checkbox" name="T1700">
+                                </div>
+                                <div class="col-3 b custom-checkbox  W1700">
+                                    <input id="checkbox" type="checkbox" name="W1700">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b custom-checkbox  TH1700">
+                                    <input id="checkbox" type="checkbox" name="TH1700">
+                                </div>
+                                <div class="col-3 b custom-checkbox  F1700">
+                                    <input id="checkbox" type="checkbox" name="F1700">
+                                </div>
+                                <div class="col-3 b custom-checkbox  S1700">
+                                    <input id="checkbox" type="checkbox" name="S1700">
+                                </div>
+                                <div class="col-3 b custom-checkbox  SU1700">
+                                    <input id="checkbox" type="checkbox" name="SU1700">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row boxes">
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b time">5:30 p.m.</div>
+                                <div class="col-3 b custom-checkbox  M1730">
+                                    <input id="checkbox" type="checkbox" name="M1730">
+                                </div>
+                                <div class="col-3 b custom-checkbox  T1730">
+                                    <input id="checkbox" type="checkbox" name="T1730">
+                                </div>
+                                <div class="col-3 b custom-checkbox  W1730">
+                                    <input id="checkbox" type="checkbox" name="W1730">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b custom-checkbox  TH1730">
+                                    <input id="checkbox" type="checkbox" name="TH1730">
+                                </div>
+                                <div class="col-3 b custom-checkbox  F1730">
+                                    <input id="checkbox" type="checkbox" name="F1730">
+                                </div>
+                                <div class="col-3 b custom-checkbox  S1730">
+                                    <input id="checkbox" type="checkbox" name="S1730">
+                                </div>
+                                <div class="col-3 b custom-checkbox  SU1730">
+                                    <input id="checkbox" type="checkbox" name="SU1730">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row boxes bg">
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b time">6:00 p.m.</div>
+                                <div class="col-3 b custom-checkbox  M1800">
+                                    <input id="checkbox" type="checkbox" name="M1800">
+                                </div>
+                                <div class="col-3 b custom-checkbox  T1800">
+                                    <input id="checkbox" type="checkbox" name="T1800">
+                                </div>
+                                <div class="col-3 b custom-checkbox  W1800">
+                                    <input id="checkbox" type="checkbox" name="W1800">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b custom-checkbox  TH1800">
+                                    <input id="checkbox" type="checkbox" name="TH1800">
+                                </div>
+                                <div class="col-3 b custom-checkbox  F1800">
+                                    <input id="checkbox" type="checkbox" name="F1800">
+                                </div>
+                                <div class="col-3 b custom-checkbox  S1800">
+                                    <input id="checkbox" type="checkbox" name="S1800">
+                                </div>
+                                <div class="col-3 b custom-checkbox  SU1800">
+                                    <input id="checkbox" type="checkbox" name="SU1800">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row boxes">
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b time">6:30 p.m.</div>
+                                <div class="col-3 b custom-checkbox  M1830">
+                                    <input id="checkbox" type="checkbox" name="M1830">
+                                </div>
+                                <div class="col-3 b custom-checkbox  T1830">
+                                    <input id="checkbox" type="checkbox" name="T1830">
+                                </div>
+                                <div class="col-3 b custom-checkbox  W1830">
+                                    <input id="checkbox" type="checkbox" name="W1830">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b custom-checkbox  TH1830">
+                                    <input id="checkbox" type="checkbox" name="TH1830">
+                                </div>
+                                <div class="col-3 b custom-checkbox  F1830">
+                                    <input id="checkbox" type="checkbox" name="F1830">
+                                </div>
+                                <div class="col-3 b custom-checkbox  S1830">
+                                    <input id="checkbox" type="checkbox" name="S1830">
+                                </div>
+                                <div class="col-3 b custom-checkbox  SU1830">
+                                    <input id="checkbox" type="checkbox" name="SU1830">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row boxes bg">
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b time">7:00 p.m.</div>
+                                <div class="col-3 b custom-checkbox  M1900">
+                                    <input id="checkbox" type="checkbox" name="M1900">
+                                </div>
+                                <div class="col-3 b custom-checkbox  T1900">
+                                    <input id="checkbox" type="checkbox" name="T1900">
+                                </div>
+                                <div class="col-3 b custom-checkbox  W1900">
+                                    <input id="checkbox" type="checkbox" name="W1900">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b custom-checkbox  TH1900">
+                                    <input id="checkbox" type="checkbox" name="TH1900">
+                                </div>
+                                <div class="col-3 b custom-checkbox  F1900">
+                                    <input id="checkbox" type="checkbox" name="F1900">
+                                </div>
+                                <div class="col-3 b custom-checkbox  S1900">
+                                    <input id="checkbox" type="checkbox" name="S1900">
+                                </div>
+                                <div class="col-3 b custom-checkbox  SU1900">
+                                    <input id="checkbox" type="checkbox" name="SU1900">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row boxes">
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b time">7:30 p.m.</div>
+                                <div class="col-3 b custom-checkbox  M1930">
+                                    <input id="checkbox" type="checkbox" name="M1930">
+                                </div>
+                                <div class="col-3 b custom-checkbox  T1930">
+                                    <input id="checkbox" type="checkbox" name="T1930">
+                                </div>
+                                <div class="col-3 b custom-checkbox  W1930">
+                                    <input id="checkbox" type="checkbox" name="W1930">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b custom-checkbox  TH1930">
+                                    <input id="checkbox" type="checkbox" name="TH1930">
+                                </div>
+                                <div class="col-3 b custom-checkbox  F1930">
+                                    <input id="checkbox" type="checkbox" name="F1930">
+                                </div>
+                                <div class="col-3 b custom-checkbox  S1930">
+                                    <input id="checkbox" type="checkbox" name="S1930">
+                                </div>
+                                <div class="col-3 b custom-checkbox  SU1930">
+                                    <input id="checkbox" type="checkbox" name="SU1930">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row boxes bg">
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b time">8:00 p.m.</div>
+                                <div class="col-3 b custom-checkbox  M2000">
+                                    <input id="checkbox" type="checkbox" name="M2000">
+                                </div>
+                                <div class="col-3 b custom-checkbox  T2000">
+                                    <input id="checkbox" type="checkbox" name="T2000">
+                                </div>
+                                <div class="col-3 b custom-checkbox  W2000">
+                                    <input id="checkbox" type="checkbox" name="W2000">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b custom-checkbox  TH2000">
+                                    <input id="checkbox" type="checkbox" name="TH2000">
+                                </div>
+                                <div class="col-3 b custom-checkbox  F2000">
+                                    <input id="checkbox" type="checkbox" name="F2000">
+                                </div>
+                                <div class="col-3 b custom-checkbox  S2000">
+                                    <input id="checkbox" type="checkbox" name="S2000">
+                                </div>
+                                <div class="col-3 b custom-checkbox  SU2000">
+                                    <input id="checkbox" type="checkbox" name="SU2000">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row boxes">
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b time">8:30 p.m.</div>
+                                <div class="col-3 b custom-checkbox  M2030">
+                                    <input id="checkbox" type="checkbox" name="M2030">
+                                </div>
+                                <div class="col-3 b custom-checkbox  T2030">
+                                    <input id="checkbox" type="checkbox" name="T2030">
+                                </div>
+                                <div class="col-3 b custom-checkbox  W2030">
+                                    <input id="checkbox" type="checkbox" name="W2030">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b custom-checkbox  TH2030">
+                                    <input id="checkbox" type="checkbox" name="TH2030">
+                                </div>
+                                <div class="col-3 b custom-checkbox  F2030">
+                                    <input id="checkbox" type="checkbox" name="F2030">
+                                </div>
+                                <div class="col-3 b custom-checkbox  S2030">
+                                    <input id="checkbox" type="checkbox" name="S2030">
+                                </div>
+                                <div class="col-3 b custom-checkbox  SU2030">
+                                    <input id="checkbox" type="checkbox" name="SU2030">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row boxes bg">
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b time">9:00 p.m.</div>
+                                <div class="col-3 b custom-checkbox  M2100">
+                                    <input id="checkbox" type="checkbox" name="M2100">
+                                </div>
+                                <div class="col-3 b custom-checkbox  T2100">
+                                    <input id="checkbox" type="checkbox" name="T2100">
+                                </div>
+                                <div class="col-3 b custom-checkbox  W2100">
+                                    <input id="checkbox" type="checkbox" name="W2100">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b custom-checkbox  TH2100">
+                                    <input id="checkbox" type="checkbox" name="TH2100">
+                                </div>
+                                <div class="col-3 b custom-checkbox  F2100">
+                                    <input id="checkbox" type="checkbox" name="F2100">
+                                </div>
+                                <div class="col-3 b custom-checkbox  S2100">
+                                    <input id="checkbox" type="checkbox" name="S2100">
+                                </div>
+                                <div class="col-3 b custom-checkbox  SU2100">
+                                    <input id="checkbox" type="checkbox" name="SU2100">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row boxes">
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b time">9:30 p.m.</div>
+                                <div class="col-3 b custom-checkbox  M2130">
+                                    <input id="checkbox" type="checkbox" name="M2130">
+                                </div>
+                                <div class="col-3 b custom-checkbox  T2130">
+                                    <input id="checkbox" type="checkbox" name="T2130">
+                                </div>
+                                <div class="col-3 b custom-checkbox  W2130">
+                                    <input id="checkbox" type="checkbox" name="W2130">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b custom-checkbox  TH2130">
+                                    <input id="checkbox" type="checkbox" name="TH2130">
+                                </div>
+                                <div class="col-3 b custom-checkbox  F2130">
+                                    <input id="checkbox" type="checkbox" name="F2130">
+                                </div>
+                                <div class="col-3 b custom-checkbox  S2130">
+                                    <input id="checkbox" type="checkbox" name="S2130">
+                                </div>
+                                <div class="col-3 b custom-checkbox  SU2130">
+                                    <input id="checkbox" type="checkbox" name="SU2130">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row boxes bg">
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b time">10:00 p.m.</div>
+                                <div class="col-3 b custom-checkbox  M2200">
+                                    <input id="checkbox" type="checkbox" name="M2200">
+                                </div>
+                                <div class="col-3 b custom-checkbox  T2200">
+                                    <input id="checkbox" type="checkbox" name="T2200">
+                                </div>
+                                <div class="col-3 b custom-checkbox  W2200">
+                                    <input id="checkbox" type="checkbox" name="W2200">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b custom-checkbox  TH2200">
+                                    <input id="checkbox" type="checkbox" name="TH2200">
+                                </div>
+                                <div class="col-3 b custom-checkbox  F2200">
+                                    <input id="checkbox" type="checkbox" name="F2200">
+                                </div>
+                                <div class="col-3 b custom-checkbox  S2200">
+                                    <input id="checkbox" type="checkbox" name="S2200">
+                                </div>
+                                <div class="col-3 b custom-checkbox  SU2200">
+                                    <input id="checkbox" type="checkbox" name="SU2200">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row boxes">
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b time">10:30 p.m.</div>
+                                <div class="col-3 b custom-checkbox  M2230">
+                                    <input id="checkbox" type="checkbox" name="M2230">
+                                </div>
+                                <div class="col-3 b custom-checkbox  T2230">
+                                    <input id="checkbox" type="checkbox" name="T2230">
+                                </div>
+                                <div class="col-3 b custom-checkbox  W2230">
+                                    <input id="checkbox" type="checkbox" name="W2230">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b custom-checkbox  TH2230">
+                                    <input id="checkbox" type="checkbox" name="TH2230">
+                                </div>
+                                <div class="col-3 b custom-checkbox  F2230">
+                                    <input id="checkbox" type="checkbox" name="F2230">
+                                </div>
+                                <div class="col-3 b custom-checkbox  S2230">
+                                    <input id="checkbox" type="checkbox" name="S2230">
+                                </div>
+                                <div class="col-3 b custom-checkbox  SU2230">
+                                    <input id="checkbox" type="checkbox" name="SU2230">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row boxes bg">
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b time">11:00 p.m.</div>
+                                <div class="col-3 b custom-checkbox  M2300">
+                                    <input id="checkbox" type="checkbox" name="M2300">
+                                </div>
+                                <div class="col-3 b custom-checkbox  T2300">
+                                    <input id="checkbox" type="checkbox" name="T2300">
+                                </div>
+                                <div class="col-3 b custom-checkbox  W2300">
+                                    <input id="checkbox" type="checkbox" name="W2300">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b custom-checkbox  TH2300">
+                                    <input id="checkbox" type="checkbox" name="TH2300">
+                                </div>
+                                <div class="col-3 b custom-checkbox  F2300">
+                                    <input id="checkbox" type="checkbox" name="F2300">
+                                </div>
+                                <div class="col-3 b custom-checkbox  S2300">
+                                    <input id="checkbox" type="checkbox" name="S2300">
+                                </div>
+                                <div class="col-3 b custom-checkbox  SU2300">
+                                    <input id="checkbox" type="checkbox" name="SU2300">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row boxes bottom">
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b time">11:30 p.m.</div>
+                                <div class="col-3 b custom-checkbox  M2330">
+                                    <input id="checkbox" type="checkbox" name="M2330">
+                                </div>
+                                <div class="col-3 b custom-checkbox  T2330">
+                                    <input id="checkbox" type="checkbox" name="T2330">
+                                </div>
+                                <div class="col-3 b custom-checkbox  W2330">
+                                    <input id="checkbox" type="checkbox" name="W2330">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row text-center">
+                                <div class="col-3 b custom-checkbox  TH2330">
+                                    <input id="checkbox" type="checkbox" name="TH2330">
+                                </div>
+                                <div class="col-3 b custom-checkbox  F2330">
+                                    <input id="checkbox" type="checkbox" name="F2330">
+                                </div>
+                                <div class="col-3 b custom-checkbox  S2330">
+                                    <input id="checkbox" type="checkbox" name="S2330">
+                                </div>
+                                <div class="col-3 b custom-checkbox  SU2330">
+                                    <input id="checkbox" type="checkbox" name="SU2330">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-        <div class="button-container">
-            <div class="button court-select">
-                <p>Court 1</p>
+        <div class="mobile container">
+            <div id="loading-screen">
+                <div class="loading-spinner"></div>
             </div>
-            <div class="button">
-                <p>Court 2</p>
+            <div class="row top-bar"></div>
+        
+            <div class="row week-bar">
+                <div class="col-2 previousweek">
+                    <p class="buttons">&lt;</p>
+                </div>
+                <div class="col-8">
+                    <p class="text-center week_name"></p>
+                </div>
+                <div class="col-2 nextweek">
+                    <p class="buttons">&gt;</p>
+                </div>
+            </div>
+            <div class="button-container">
+                <div class="button court-select">
+                    <p>Court 1</p>
+                </div>
+                <div class="button">
+                    <p>Court 2</p>
+                </div>
+            </div>
+            <div class="calendar-monile">
+                <form action="/c1" method="post">
+                    <div class="row">
+                        <div class="col-8" style="background-color: transparent;"></div>
+                        <div class="col-4">
+                            <button onclick="showLoadingScreen()">Reserve</button>
+                        </div>
+                    </div>
+                    <div class="row days">
+                        <div class="col-12">
+                            <div class="row text-center">
+                                <div class="col-3">Time</div>
+                                <div class="col-9">Monday</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row boxes bg">
+                        <div class="col-12">
+                            <div class="row text-center">
+                                <div class="col-3 b">9:00 a.m.</div>
+                                <div class="col-9 b custom-checkbox M0900">
+                                    <input id="checkbox" type="checkbox" name="M0900">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row boxes">
+                        <div class="col-12">
+                            <div class="row text-center">
+                                <div class="col-3 b">9:30 a.m.</div>
+                                <div class="col-9 b custom-checkbox M0930">
+                                    <input id="checkbox" type="checkbox" name="M0930">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row boxes bg">
+                        <div class="col-12">
+                            <div class="row text-center">
+                                <div class="col-3 b">10:00 a.m.</div>
+                                <div class="col-9 b custom-checkbox M1000">
+                                    <input id="checkbox" type="checkbox" name="M1000">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row boxes">
+                        <div class="col-12">
+                            <div class="row text-center">
+                                <div class="col-3 b">10:30 a.m.</div>
+                                <div class="col-9 b custom-checkbox M1030">
+                                    <input id="checkbox" type="checkbox" name="M1030">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row boxes bg">
+                        <div class="col-12">
+                            <div class="row text-center">
+                                <div class="col-3 b">11:00 a.m.</div>
+                                <div class="col-9 b custom-checkbox M1100">
+                                    <input id="checkbox" type="checkbox" name="M1100">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row boxes">
+                        <div class="col-12">
+                            <div class="row text-center">
+                                <div class="col-3 b">11:30 a.m.</div>
+                                <div class="col-9 b custom-checkbox M1130">
+                                    <input id="checkbox" type="checkbox" name="M1130">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row boxes bg">
+                        <div class="col-12">
+                            <div class="row text-center">
+                                <div class="col-3 b">12:00 p.m.</div>
+                                <div class="col-9 b custom-checkbox M1200">
+                                    <input id="checkbox" type="checkbox" name="M1200">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row boxes">
+                        <div class="col-12">
+                            <div class="row text-center">
+                                <div class="col-3 b">12:30 p.m.</div>
+                                <div class="col-9 b custom-checkbox M1230">
+                                    <input id="checkbox" type="checkbox" name="M1230">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row boxes bg">
+                        <div class="col-12">
+                            <div class="row text-center">
+                                <div class="col-3 b">1:00 p.m.</div>
+                                <div class="col-9 b custom-checkbox M1300">
+                                    <input id="checkbox" type="checkbox" name="M1300">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row boxes">
+                        <div class="col-12">
+                            <div class="row text-center">
+                                <div class="col-3 b">1:30 p.m.</div>
+                                <div class="col-9 b custom-checkbox M1330">
+                                    <input id="checkbox" type="checkbox" name="M1330">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row boxes bg">
+                        <div class="col-12">
+                            <div class="row text-center">
+                                <div class="col-3 b">2:00 p.m.</div>
+                                <div class="col-9 b custom-checkbox M1400">
+                                    <input id="checkbox" type="checkbox" name="M1400">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row boxes">
+                        <div class="col-12">
+                            <div class="row text-center">
+                                <div class="col-3 b">2:30 p.m.</div>
+                                <div class="col-9 b custom-checkbox M1430">
+                                    <input id="checkbox" type="checkbox" name="M1430">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row boxes bg">
+                        <div class="col-12">
+                            <div class="row text-center">
+                                <div class="col-3 b">3:00 p.m.</div>
+                                <div class="col-9 b custom-checkbox M1500">
+                                    <input id="checkbox" type="checkbox" name="M1500">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row boxes">
+                        <div class="col-12">
+                            <div class="row text-center">
+                                <div class="col-3 b">3:30 p.m.</div>
+                                <div class="col-9 b custom-checkbox M1530">
+                                    <input id="checkbox" type="checkbox" name="M1530">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row boxes bg">
+                        <div class="col-12">
+                            <div class="row text-center">
+                                <div class="col-3 b">4:00 p.m.</div>
+                                <div class="col-9 b custom-checkbox M1600">
+                                    <input id="checkbox" type="checkbox" name="M1600">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row boxes">
+                        <div class="col-12">
+                            <div class="row text-center">
+                                <div class="col-3 b">4:30 p.m.</div>
+                                <div class="col-9 b custom-checkbox M1630">
+                                    <input id="checkbox" type="checkbox" name="M1630">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row boxes bg">
+                        <div class="col-12">
+                            <div class="row text-center">
+                                <div class="col-3 b">5:00 p.m.</div>
+                                <div class="col-9 b custom-checkbox M1700">
+                                    <input id="checkbox" type="checkbox" name="M1700">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row boxes">
+                        <div class="col-12">
+                            <div class="row text-center">
+                                <div class="col-3 b">5:30 p.m.</div>
+                                <div class="col-9 b custom-checkbox M1730">
+                                    <input id="checkbox" type="checkbox" name="M1730">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row boxes bg">
+                        <div class="col-12">
+                            <div class="row text-center">
+                                <div class="col-3 b">6:00 p.m.</div>
+                                <div class="col-9 b custom-checkbox M1800">
+                                    <input id="checkbox" type="checkbox" name="M1800">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row boxes">
+                        <div class="col-12">
+                            <div class="row text-center">
+                                <div class="col-3 b">6:30 p.m.</div>
+                                <div class="col-9 b custom-checkbox M1830">
+                                    <input id="checkbox" type="checkbox" name="M1830">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row boxes bg">
+                        <div class="col-12">
+                            <div class="row text-center">
+                                <div class="col-3 b">7:00 p.m.</div>
+                                <div class="col-9 b custom-checkbox M1900">
+                                    <input id="checkbox" type="checkbox" name="M1900">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row boxes">
+                        <div class="col-12">
+                            <div class="row text-center">
+                                <div class="col-3 b">7:30 p.m.</div>
+                                <div class="col-9 b custom-checkbox M1930">
+                                    <input id="checkbox" type="checkbox" name="M1930">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row boxes bg">
+                        <div class="col-12">
+                            <div class="row text-center">
+                                <div class="col-3 b">8:00 p.m.</div>
+                                <div class="col-9 b custom-checkbox M2000">
+                                    <input id="checkbox" type="checkbox" name="M2000">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row boxes">
+                        <div class="col-12">
+                            <div class="row text-center">
+                                <div class="col-3 b">8:30 p.m.</div>
+                                <div class="col-9 b custom-checkbox M2030">
+                                    <input id="checkbox" type="checkbox" name="M2030">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row boxes bg">
+                        <div class="col-12">
+                            <div class="row text-center">
+                                <div class="col-3 b">9:00 p.m.</div>
+                                <div class="col-9 b custom-checkbox M2100">
+                                    <input id="checkbox" type="checkbox" name="M2100">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row boxes">
+                        <div class="col-12">
+                            <div class="row text-center">
+                                <div class="col-3 b">9:30 p.m.</div>
+                                <div class="col-9 b custom-checkbox M2130">
+                                    <input id="checkbox" type="checkbox" name="M2130">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row boxes bg">
+                        <div class="col-12">
+                            <div class="row text-center">
+                                <div class="col-3 b">10:00 p.m.</div>
+                                <div class="col-9 b custom-checkbox M2200">
+                                    <input id="checkbox" type="checkbox" name="M2200">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row boxes">
+                        <div class="col-12">
+                            <div class="row text-center">
+                                <div class="col-3 b">10:30 p.m.</div>
+                                <div class="col-9 b custom-checkbox M2230">
+                                    <input id="checkbox" type="checkbox" name="M2230">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row boxes bg">
+                        <div class="col-12">
+                            <div class="row text-center">
+                                <div class="col-3 b">11:00 p.m.</div>
+                                <div class="col-9 b custom-checkbox M2300">
+                                    <input id="checkbox" type="checkbox" name="M2300">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row boxes">
+                        <div class="col-12">
+                            <div class="row text-center">
+                                <div class="col-3 b">11:30 p.m.</div>
+                                <div class="col-9 b custom-checkbox M2330">
+                                    <input id="checkbox" type="checkbox" name="M2330">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                </form>
             </div>
         </div>
-        <div class="calendar">
-            <form action="/c1" method="post">
-                <div class="row">
-                    <div class="col-10" style="background-color: transparent;">
-
-                    </div>
-                    <div class="col-2">
-                        <button onclick="showLoadingScreen()">Reserve</button>
-                    </div>
-                </div>
-                <div class="row days">
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3">Time</div>
-                            <div class="col-3">Monday</div>
-                            <div class="col-3">Tuesday</div>
-                            <div class="col-3">Wednesday</div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3">Thursday</div>
-                            <div class="col-3">Friday</div>
-                            <div class="col-3">Saturday</div>
-                            <div class="col-3">Sunday</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row boxes bg">
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b">9:00 a.m.</div>
-                            <div class="col-3 b custom-checkbox  M0900">
-                                <input id="checkbox" type="checkbox" name="M0900">
-                            </div>
-                            <div class="col-3 b custom-checkbox  T0900">
-                                <input id="checkbox" type="checkbox" name="T0900">
-                            </div>
-                            <div class="col-3 b custom-checkbox  W0900">
-                                <input id="checkbox" type="checkbox" name="W0900">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b custom-checkbox  TH0900">
-                                <input id="checkbox" type="checkbox" name="TH0900">
-                            </div>
-                            <div class="col-3 b custom-checkbox  F0900">
-                                <input id="checkbox" type="checkbox" name="F0900">
-                            </div>
-                            <div class="col-3 b custom-checkbox  S0900">
-                                <input id="checkbox" type="checkbox" name="S0900">
-                            </div>
-                            <div class="col-3 b custom-checkbox  SU0900">
-                                <input id="checkbox" type="checkbox" name="SU0900">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row boxes">
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b">9:30 a.m.</div>
-                            <div class="col-3 b custom-checkbox  M0930">
-                                <input id="checkbox" type="checkbox" name="M0930">
-                            </div>
-                            <div class="col-3 b custom-checkbox  T0930">
-                                <input id="checkbox" type="checkbox" name="T0930">
-                            </div>
-                            <div class="col-3 b custom-checkbox  W0930">
-                                <input id="checkbox" type="checkbox" name="W0930">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b custom-checkbox  TH0930">
-                                <input id="checkbox" type="checkbox" name="TH0930">
-                            </div>
-                            <div class="col-3 b custom-checkbox  F0930">
-                                <input id="checkbox" type="checkbox" name="F0930">
-                            </div>
-                            <div class="col-3 b custom-checkbox  S0930">
-                                <input id="checkbox" type="checkbox" name="S0930">
-                            </div>
-                            <div class="col-3 b custom-checkbox  SU0930">
-                                <input id="checkbox" type="checkbox" name="SU0930">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row boxes bg">
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b">10:00 a.m.</div>
-                            <div class="col-3 b custom-checkbox  M1000">
-                                <input id="checkbox" type="checkbox" name="M1000">
-                            </div>
-                            <div class="col-3 b custom-checkbox  T1000">
-                                <input id="checkbox" type="checkbox" name="T1000">
-                            </div>
-                            <div class="col-3 b custom-checkbox  W1000">
-                                <input id="checkbox" type="checkbox" name="W1000">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b custom-checkbox  TH1000">
-                                <input id="checkbox" type="checkbox" name="TH1000">
-                            </div>
-                            <div class="col-3 b custom-checkbox  F1000">
-                                <input id="checkbox" type="checkbox" name="F1000">
-                            </div>
-                            <div class="col-3 b custom-checkbox  S1000">
-                                <input id="checkbox" type="checkbox" name="S1000">
-                            </div>
-                            <div class="col-3 b custom-checkbox  SU1000">
-                                <input id="checkbox" type="checkbox" name="SU1000">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row boxes">
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b">10:30 a.m.</div>
-                            <div class="col-3 b custom-checkbox  M1030">
-                                <input id="checkbox" type="checkbox" name="M1030">
-                            </div>
-                            <div class="col-3 b custom-checkbox  T1030">
-                                <input id="checkbox" type="checkbox" name="T1030">
-                            </div>
-                            <div class="col-3 b custom-checkbox  W1030">
-                                <input id="checkbox" type="checkbox" name="W1030">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b custom-checkbox  TH1030">
-                                <input id="checkbox" type="checkbox" name="TH1030">
-                            </div>
-                            <div class="col-3 b custom-checkbox  F1030">
-                                <input id="checkbox" type="checkbox" name="F1030">
-                            </div>
-                            <div class="col-3 b custom-checkbox  S1030">
-                                <input id="checkbox" type="checkbox" name="S1030">
-                            </div>
-                            <div class="col-3 b custom-checkbox  SU1030">
-                                <input id="checkbox" type="checkbox" name="SU1030">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row boxes bg">
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b">11:00 a.m.</div>
-                            <div class="col-3 b custom-checkbox  M1100">
-                                <input id="checkbox" type="checkbox" name="M1100">
-                            </div>
-                            <div class="col-3 b custom-checkbox  T1100">
-                                <input id="checkbox" type="checkbox" name="T1100">
-                            </div>
-                            <div class="col-3 b custom-checkbox  W1100">
-                                <input id="checkbox" type="checkbox" name="W1100">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b custom-checkbox  TH1100">
-                                <input id="checkbox" type="checkbox" name="TH1100">
-                            </div>
-                            <div class="col-3 b custom-checkbox  F1100">
-                                <input id="checkbox" type="checkbox" name="F1100">
-                            </div>
-                            <div class="col-3 b custom-checkbox  S1100">
-                                <input id="checkbox" type="checkbox" name="S1100">
-                            </div>
-                            <div class="col-3 b custom-checkbox  SU1100">
-                                <input id="checkbox" type="checkbox" name="SU1100">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row boxes">
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b">11:30 a.m.</div>
-                            <div class="col-3 b custom-checkbox  M1130">
-                                <input id="checkbox" type="checkbox" name="M1130">
-                            </div>
-                            <div class="col-3 b custom-checkbox  T1130">
-                                <input id="checkbox" type="checkbox" name="T1130">
-                            </div>
-                            <div class="col-3 b custom-checkbox  W1130">
-                                <input id="checkbox" type="checkbox" name="W1130">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b custom-checkbox  TH1130">
-                                <input id="checkbox" type="checkbox" name="TH1130">
-                            </div>
-                            <div class="col-3 b custom-checkbox  F1130">
-                                <input id="checkbox" type="checkbox" name="F1130">
-                            </div>
-                            <div class="col-3 b custom-checkbox  S1130">
-                                <input id="checkbox" type="checkbox" name="S1130">
-                            </div>
-                            <div class="col-3 b custom-checkbox  SU1130">
-                                <input id="checkbox" type="checkbox" name="SU1130">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row boxes bg">
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b">12:00 p.m.</div>
-                            <div class="col-3 b custom-checkbox  M1200">
-                                <input id="checkbox" type="checkbox" name="M1200">
-                            </div>
-                            <div class="col-3 b custom-checkbox  T1200">
-                                <input id="checkbox" type="checkbox" name="T1200">
-                            </div>
-                            <div class="col-3 b custom-checkbox  W1200">
-                                <input id="checkbox" type="checkbox" name="W1200">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b custom-checkbox  TH1200">
-                                <input id="checkbox" type="checkbox" name="TH1200">
-                            </div>
-                            <div class="col-3 b custom-checkbox  F1200">
-                                <input id="checkbox" type="checkbox" name="F1200">
-                            </div>
-                            <div class="col-3 b custom-checkbox  S1200">
-                                <input id="checkbox" type="checkbox" name="S1200">
-                            </div>
-                            <div class="col-3 b custom-checkbox  SU1200">
-                                <input id="checkbox" type="checkbox" name="SU1200">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row boxes">
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b">12:30 p.m.</div>
-                            <div class="col-3 b custom-checkbox  M1230">
-                                <input id="checkbox" type="checkbox" name="M1230">
-                            </div>
-                            <div class="col-3 b custom-checkbox  T1230">
-                                <input id="checkbox" type="checkbox" name="T1230">
-                            </div>
-                            <div class="col-3 b custom-checkbox  W1230">
-                                <input id="checkbox" type="checkbox" name="W1230">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b custom-checkbox  TH1230">
-                                <input id="checkbox" type="checkbox" name="TH1230">
-                            </div>
-                            <div class="col-3 b custom-checkbox  F1230">
-                                <input id="checkbox" type="checkbox" name="F1230">
-                            </div>
-                            <div class="col-3 b custom-checkbox  S1230">
-                                <input id="checkbox" type="checkbox" name="S1230">
-                            </div>
-                            <div class="col-3 b custom-checkbox  SU1230">
-                                <input id="checkbox" type="checkbox" name="SU1230">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row boxes bg">
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b">1:00 p.m.</div>
-                            <div class="col-3 b custom-checkbox  M1300">
-                                <input id="checkbox" type="checkbox" name="M1300">
-                            </div>
-                            <div class="col-3 b custom-checkbox  T1300">
-                                <input id="checkbox" type="checkbox" name="T1300">
-                            </div>
-                            <div class="col-3 b custom-checkbox  W1300">
-                                <input id="checkbox" type="checkbox" name="W1300">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b custom-checkbox  TH1300">
-                                <input id="checkbox" type="checkbox" name="TH1300">
-                            </div>
-                            <div class="col-3 b custom-checkbox  F1300">
-                                <input id="checkbox" type="checkbox" name="F1300">
-                            </div>
-                            <div class="col-3 b custom-checkbox  S1300">
-                                <input id="checkbox" type="checkbox" name="S1300">
-                            </div>
-                            <div class="col-3 b custom-checkbox  SU1300">
-                                <input id="checkbox" type="checkbox" name="SU1300">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row boxes">
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b">1:30 p.m.</div>
-                            <div class="col-3 b custom-checkbox  M1330">
-                                <input id="checkbox" type="checkbox" name="M1330">
-                            </div>
-                            <div class="col-3 b custom-checkbox  T1330">
-                                <input id="checkbox" type="checkbox" name="T1330">
-                            </div>
-                            <div class="col-3 b custom-checkbox  W1330">
-                                <input id="checkbox" type="checkbox" name="W1330">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b custom-checkbox  TH1330">
-                                <input id="checkbox" type="checkbox" name="TH1330">
-                            </div>
-                            <div class="col-3 b custom-checkbox  F1330">
-                                <input id="checkbox" type="checkbox" name="F1330">
-                            </div>
-                            <div class="col-3 b custom-checkbox  S1330">
-                                <input id="checkbox" type="checkbox" name="S1330">
-                            </div>
-                            <div class="col-3 b custom-checkbox  SU1330">
-                                <input id="checkbox" type="checkbox" name="SU1330">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row boxes bg">
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b ">2:00 p.m.</div>
-                            <div class="col-3 b custom-checkbox  M1400">
-                                <input id="checkbox" type="checkbox" name="M1400">
-                            </div>
-                            <div class="col-3 b custom-checkbox  T1400">
-                                <input id="checkbox" type="checkbox" name="T1400">
-                            </div>
-                            <div class="col-3 b custom-checkbox  W1400">
-                                <input id="checkbox" type="checkbox" name="W1400">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b custom-checkbox  TH1400">
-                                <input id="checkbox" type="checkbox" name="TH1400">
-                            </div>
-                            <div class="col-3 b custom-checkbox  F1400">
-                                <input id="checkbox" type="checkbox" name="F1400">
-                            </div>
-                            <div class="col-3 b custom-checkbox  S1400">
-                                <input id="checkbox" type="checkbox" name="S1400">
-                            </div>
-                            <div class="col-3 b custom-checkbox  SU1400">
-                                <input id="checkbox" type="checkbox" name="SU1400">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row boxes">
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b ">2:30 p.m.</div>
-                            <div class="col-3 b custom-checkbox  M1430">
-                                <input id="checkbox" type="checkbox" name="M1430">
-                            </div>
-                            <div class="col-3 b custom-checkbox  T1430">
-                                <input id="checkbox" type="checkbox" name="T1430">
-                            </div>
-                            <div class="col-3 b custom-checkbox  W1430">
-                                <input id="checkbox" type="checkbox" name="W1430">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b custom-checkbox  TH1430">
-                                <input id="checkbox" type="checkbox" name="TH1430">
-                            </div>
-                            <div class="col-3 b custom-checkbox  F1430">
-                                <input id="checkbox" type="checkbox" name="F1430">
-                            </div>
-                            <div class="col-3 b custom-checkbox  S1430">
-                                <input id="checkbox" type="checkbox" name="S1430">
-                            </div>
-                            <div class="col-3 b custom-checkbox  SU1430">
-                                <input id="checkbox" type="checkbox" name="SU1430">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row boxes bg">
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b ">3:00 p.m.</div>
-                            <div class="col-3 b custom-checkbox  M1500">
-                                <input id="checkbox" type="checkbox" name="M1500">
-                            </div>
-                            <div class="col-3 b custom-checkbox  T1500">
-                                <input id="checkbox" type="checkbox" name="T1500">
-                            </div>
-                            <div class="col-3 b custom-checkbox  W1500">
-                                <input id="checkbox" type="checkbox" name="W1500">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b custom-checkbox  TH1500">
-                                <input id="checkbox" type="checkbox" name="TH1500">
-                            </div>
-                            <div class="col-3 b custom-checkbox  F1500">
-                                <input id="checkbox" type="checkbox" name="F1500">
-                            </div>
-                            <div class="col-3 b custom-checkbox  S1500">
-                                <input id="checkbox" type="checkbox" name="S1500">
-                            </div>
-                            <div class="col-3 b custom-checkbox  SU1500">
-                                <input id="checkbox" type="checkbox" name="SU1500">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row boxes">
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b">3:30 p.m.</div>
-                            <div class="col-3 b custom-checkbox  M1530">
-                                <input id="checkbox" type="checkbox" name="M1530">
-                            </div>
-                            <div class="col-3 b custom-checkbox  T1530">
-                                <input id="checkbox" type="checkbox" name="T1530">
-                            </div>
-                            <div class="col-3 b custom-checkbox  W1530">
-                                <input id="checkbox" type="checkbox" name="W1530">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b custom-checkbox  TH1530">
-                                <input id="checkbox" type="checkbox" name="TH1530">
-                            </div>
-                            <div class="col-3 b custom-checkbox  F1530">
-                                <input id="checkbox" type="checkbox" name="F1530">
-                            </div>
-                            <div class="col-3 b custom-checkbox  S1530">
-                                <input id="checkbox" type="checkbox" name="S1530">
-                            </div>
-                            <div class="col-3 b custom-checkbox  SU1530">
-                                <input id="checkbox" type="checkbox" name="SU1530">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row boxes bg">
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b">4:00 p.m.</div>
-                            <div class="col-3 b custom-checkbox  M1600">
-                                <input id="checkbox" type="checkbox" name="M1600">
-                            </div>
-                            <div class="col-3 b custom-checkbox  T1600">
-                                <input id="checkbox" type="checkbox" name="T1600">
-                            </div>
-                            <div class="col-3 b custom-checkbox  W1600">
-                                <input id="checkbox" type="checkbox" name="W1600">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b custom-checkbox  TH1600">
-                                <input id="checkbox" type="checkbox" name="TH1600">
-                            </div>
-                            <div class="col-3 b custom-checkbox  F1600">
-                                <input id="checkbox" type="checkbox" name="F1600">
-                            </div>
-                            <div class="col-3 b custom-checkbox  S1600">
-                                <input id="checkbox" type="checkbox" name="S1600">
-                            </div>
-                            <div class="col-3 b custom-checkbox  SU1600">
-                                <input id="checkbox" type="checkbox" name="SU1600">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row boxes">
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b">4:30 p.m.</div>
-                            <div class="col-3 b custom-checkbox  M1630">
-                                <input id="checkbox" type="checkbox" name="M1630">
-                            </div>
-                            <div class="col-3 b custom-checkbox  T1630">
-                                <input id="checkbox" type="checkbox" name="T1630">
-                            </div>
-                            <div class="col-3 b custom-checkbox  W1630">
-                                <input id="checkbox" type="checkbox" name="W1630">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b custom-checkbox  TH1630">
-                                <input id="checkbox" type="checkbox" name="TH1630">
-                            </div>
-                            <div class="col-3 b custom-checkbox  F1630">
-                                <input id="checkbox" type="checkbox" name="F1630">
-                            </div>
-                            <div class="col-3 b custom-checkbox  S1630">
-                                <input id="checkbox" type="checkbox" name="S1630">
-                            </div>
-                            <div class="col-3 b custom-checkbox  SU1630">
-                                <input id="checkbox" type="checkbox" name="SU1630">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row boxes bg">
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b">5:00 p.m.</div>
-                            <div class="col-3 b custom-checkbox  M1700">
-                                <input id="checkbox" type="checkbox" name="M1700">
-                            </div>
-                            <div class="col-3 b custom-checkbox  T1700">
-                                <input id="checkbox" type="checkbox" name="T1700">
-                            </div>
-                            <div class="col-3 b custom-checkbox  W1700">
-                                <input id="checkbox" type="checkbox" name="W1700">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b custom-checkbox  TH1700">
-                                <input id="checkbox" type="checkbox" name="TH1700">
-                            </div>
-                            <div class="col-3 b custom-checkbox  F1700">
-                                <input id="checkbox" type="checkbox" name="F1700">
-                            </div>
-                            <div class="col-3 b custom-checkbox  S1700">
-                                <input id="checkbox" type="checkbox" name="S1700">
-                            </div>
-                            <div class="col-3 b custom-checkbox  SU1700">
-                                <input id="checkbox" type="checkbox" name="SU1700">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row boxes">
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b">5:30 p.m.</div>
-                            <div class="col-3 b custom-checkbox  M1730">
-                                <input id="checkbox" type="checkbox" name="M1730">
-                            </div>
-                            <div class="col-3 b custom-checkbox  T1730">
-                                <input id="checkbox" type="checkbox" name="T1730">
-                            </div>
-                            <div class="col-3 b custom-checkbox  W1730">
-                                <input id="checkbox" type="checkbox" name="W1730">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b custom-checkbox  TH1730">
-                                <input id="checkbox" type="checkbox" name="TH1730">
-                            </div>
-                            <div class="col-3 b custom-checkbox  F1730">
-                                <input id="checkbox" type="checkbox" name="F1730">
-                            </div>
-                            <div class="col-3 b custom-checkbox  S1730">
-                                <input id="checkbox" type="checkbox" name="S1730">
-                            </div>
-                            <div class="col-3 b custom-checkbox  SU1730">
-                                <input id="checkbox" type="checkbox" name="SU1730">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row boxes bg">
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b">6:00 p.m.</div>
-                            <div class="col-3 b custom-checkbox  M1800">
-                                <input id="checkbox" type="checkbox" name="M1800">
-                            </div>
-                            <div class="col-3 b custom-checkbox  T1800">
-                                <input id="checkbox" type="checkbox" name="T1800">
-                            </div>
-                            <div class="col-3 b custom-checkbox  W1800">
-                                <input id="checkbox" type="checkbox" name="W1800">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b custom-checkbox  TH1800">
-                                <input id="checkbox" type="checkbox" name="TH1800">
-                            </div>
-                            <div class="col-3 b custom-checkbox  F1800">
-                                <input id="checkbox" type="checkbox" name="F1800">
-                            </div>
-                            <div class="col-3 b custom-checkbox  S1800">
-                                <input id="checkbox" type="checkbox" name="S1800">
-                            </div>
-                            <div class="col-3 b custom-checkbox  SU1800">
-                                <input id="checkbox" type="checkbox" name="SU1800">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row boxes">
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b">6:30 p.m.</div>
-                            <div class="col-3 b custom-checkbox  M1830">
-                                <input id="checkbox" type="checkbox" name="M1830">
-                            </div>
-                            <div class="col-3 b custom-checkbox  T1830">
-                                <input id="checkbox" type="checkbox" name="T1830">
-                            </div>
-                            <div class="col-3 b custom-checkbox  W1830">
-                                <input id="checkbox" type="checkbox" name="W1830">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b custom-checkbox  TH1830">
-                                <input id="checkbox" type="checkbox" name="TH1830">
-                            </div>
-                            <div class="col-3 b custom-checkbox  F1830">
-                                <input id="checkbox" type="checkbox" name="F1830">
-                            </div>
-                            <div class="col-3 b custom-checkbox  S1830">
-                                <input id="checkbox" type="checkbox" name="S1830">
-                            </div>
-                            <div class="col-3 b custom-checkbox  SU1830">
-                                <input id="checkbox" type="checkbox" name="SU1830">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row boxes bg">
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b">7:00 p.m.</div>
-                            <div class="col-3 b custom-checkbox  M1900">
-                                <input id="checkbox" type="checkbox" name="M1900">
-                            </div>
-                            <div class="col-3 b custom-checkbox  T1900">
-                                <input id="checkbox" type="checkbox" name="T1900">
-                            </div>
-                            <div class="col-3 b custom-checkbox  W1900">
-                                <input id="checkbox" type="checkbox" name="W1900">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b custom-checkbox  TH1900">
-                                <input id="checkbox" type="checkbox" name="TH1900">
-                            </div>
-                            <div class="col-3 b custom-checkbox  F1900">
-                                <input id="checkbox" type="checkbox" name="F1900">
-                            </div>
-                            <div class="col-3 b custom-checkbox  S1900">
-                                <input id="checkbox" type="checkbox" name="S1900">
-                            </div>
-                            <div class="col-3 b custom-checkbox  SU1900">
-                                <input id="checkbox" type="checkbox" name="SU1900">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row boxes">
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b">7:30 p.m.</div>
-                            <div class="col-3 b custom-checkbox  M1930">
-                                <input id="checkbox" type="checkbox" name="M1930">
-                            </div>
-                            <div class="col-3 b custom-checkbox  T1930">
-                                <input id="checkbox" type="checkbox" name="T1930">
-                            </div>
-                            <div class="col-3 b custom-checkbox  W1930">
-                                <input id="checkbox" type="checkbox" name="W1930">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b custom-checkbox  TH1930">
-                                <input id="checkbox" type="checkbox" name="TH1930">
-                            </div>
-                            <div class="col-3 b custom-checkbox  F1930">
-                                <input id="checkbox" type="checkbox" name="F1930">
-                            </div>
-                            <div class="col-3 b custom-checkbox  S1930">
-                                <input id="checkbox" type="checkbox" name="S1930">
-                            </div>
-                            <div class="col-3 b custom-checkbox  SU1930">
-                                <input id="checkbox" type="checkbox" name="SU1930">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row boxes bg">
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b">8:00 p.m.</div>
-                            <div class="col-3 b custom-checkbox  M2000">
-                                <input id="checkbox" type="checkbox" name="M2000">
-                            </div>
-                            <div class="col-3 b custom-checkbox  T2000">
-                                <input id="checkbox" type="checkbox" name="T2000">
-                            </div>
-                            <div class="col-3 b custom-checkbox  W2000">
-                                <input id="checkbox" type="checkbox" name="W2000">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b custom-checkbox  TH2000">
-                                <input id="checkbox" type="checkbox" name="TH2000">
-                            </div>
-                            <div class="col-3 b custom-checkbox  F2000">
-                                <input id="checkbox" type="checkbox" name="F2000">
-                            </div>
-                            <div class="col-3 b custom-checkbox  S2000">
-                                <input id="checkbox" type="checkbox" name="S2000">
-                            </div>
-                            <div class="col-3 b custom-checkbox  SU2000">
-                                <input id="checkbox" type="checkbox" name="SU2000">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row boxes">
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b">8:30 p.m.</div>
-                            <div class="col-3 b custom-checkbox  M2030">
-                                <input id="checkbox" type="checkbox" name="M2030">
-                            </div>
-                            <div class="col-3 b custom-checkbox  T2030">
-                                <input id="checkbox" type="checkbox" name="T2030">
-                            </div>
-                            <div class="col-3 b custom-checkbox  W2030">
-                                <input id="checkbox" type="checkbox" name="W2030">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b custom-checkbox  TH2030">
-                                <input id="checkbox" type="checkbox" name="TH2030">
-                            </div>
-                            <div class="col-3 b custom-checkbox  F2030">
-                                <input id="checkbox" type="checkbox" name="F2030">
-                            </div>
-                            <div class="col-3 b custom-checkbox  S2030">
-                                <input id="checkbox" type="checkbox" name="S2030">
-                            </div>
-                            <div class="col-3 b custom-checkbox  SU2030">
-                                <input id="checkbox" type="checkbox" name="SU2030">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row boxes bg">
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b">9:00 p.m.</div>
-                            <div class="col-3 b custom-checkbox  M2100">
-                                <input id="checkbox" type="checkbox" name="M2100">
-                            </div>
-                            <div class="col-3 b custom-checkbox  T2100">
-                                <input id="checkbox" type="checkbox" name="T2100">
-                            </div>
-                            <div class="col-3 b custom-checkbox  W2100">
-                                <input id="checkbox" type="checkbox" name="W2100">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b custom-checkbox  TH2100">
-                                <input id="checkbox" type="checkbox" name="TH2100">
-                            </div>
-                            <div class="col-3 b custom-checkbox  F2100">
-                                <input id="checkbox" type="checkbox" name="F2100">
-                            </div>
-                            <div class="col-3 b custom-checkbox  S2100">
-                                <input id="checkbox" type="checkbox" name="S2100">
-                            </div>
-                            <div class="col-3 b custom-checkbox  SU2100">
-                                <input id="checkbox" type="checkbox" name="SU2100">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row boxes">
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b">9:30 p.m.</div>
-                            <div class="col-3 b custom-checkbox  M2130">
-                                <input id="checkbox" type="checkbox" name="M2130">
-                            </div>
-                            <div class="col-3 b custom-checkbox  T2130">
-                                <input id="checkbox" type="checkbox" name="T2130">
-                            </div>
-                            <div class="col-3 b custom-checkbox  W2130">
-                                <input id="checkbox" type="checkbox" name="W2130">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b custom-checkbox  TH2130">
-                                <input id="checkbox" type="checkbox" name="TH2130">
-                            </div>
-                            <div class="col-3 b custom-checkbox  F2130">
-                                <input id="checkbox" type="checkbox" name="F2130">
-                            </div>
-                            <div class="col-3 b custom-checkbox  S2130">
-                                <input id="checkbox" type="checkbox" name="S2130">
-                            </div>
-                            <div class="col-3 b custom-checkbox  SU2130">
-                                <input id="checkbox" type="checkbox" name="SU2130">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row boxes bg">
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b">10:00 p.m.</div>
-                            <div class="col-3 b custom-checkbox  M2200">
-                                <input id="checkbox" type="checkbox" name="M2200">
-                            </div>
-                            <div class="col-3 b custom-checkbox  T2200">
-                                <input id="checkbox" type="checkbox" name="T2200">
-                            </div>
-                            <div class="col-3 b custom-checkbox  W2200">
-                                <input id="checkbox" type="checkbox" name="W2200">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b custom-checkbox  TH2200">
-                                <input id="checkbox" type="checkbox" name="TH2200">
-                            </div>
-                            <div class="col-3 b custom-checkbox  F2200">
-                                <input id="checkbox" type="checkbox" name="F2200">
-                            </div>
-                            <div class="col-3 b custom-checkbox  S2200">
-                                <input id="checkbox" type="checkbox" name="S2200">
-                            </div>
-                            <div class="col-3 b custom-checkbox  SU2200">
-                                <input id="checkbox" type="checkbox" name="SU2200">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row boxes">
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b">10:30 p.m.</div>
-                            <div class="col-3 b custom-checkbox  M2230">
-                                <input id="checkbox" type="checkbox" name="M2230">
-                            </div>
-                            <div class="col-3 b custom-checkbox  T2230">
-                                <input id="checkbox" type="checkbox" name="T2230">
-                            </div>
-                            <div class="col-3 b custom-checkbox  W2230">
-                                <input id="checkbox" type="checkbox" name="W2230">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b custom-checkbox  TH2230">
-                                <input id="checkbox" type="checkbox" name="TH2230">
-                            </div>
-                            <div class="col-3 b custom-checkbox  F2230">
-                                <input id="checkbox" type="checkbox" name="F2230">
-                            </div>
-                            <div class="col-3 b custom-checkbox  S2230">
-                                <input id="checkbox" type="checkbox" name="S2230">
-                            </div>
-                            <div class="col-3 b custom-checkbox  SU2230">
-                                <input id="checkbox" type="checkbox" name="SU2230">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row boxes bg">
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b">11:00 p.m.</div>
-                            <div class="col-3 b custom-checkbox  M2300">
-                                <input id="checkbox" type="checkbox" name="M2300">
-                            </div>
-                            <div class="col-3 b custom-checkbox  T2300">
-                                <input id="checkbox" type="checkbox" name="T2300">
-                            </div>
-                            <div class="col-3 b custom-checkbox  W2300">
-                                <input id="checkbox" type="checkbox" name="W2300">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b custom-checkbox  TH2300">
-                                <input id="checkbox" type="checkbox" name="TH2300">
-                            </div>
-                            <div class="col-3 b custom-checkbox  F2300">
-                                <input id="checkbox" type="checkbox" name="F2300">
-                            </div>
-                            <div class="col-3 b custom-checkbox  S2300">
-                                <input id="checkbox" type="checkbox" name="S2300">
-                            </div>
-                            <div class="col-3 b custom-checkbox  SU2300">
-                                <input id="checkbox" type="checkbox" name="SU2300">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row boxes bottom">
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b">11:30 p.m.</div>
-                            <div class="col-3 b custom-checkbox  M2330">
-                                <input id="checkbox" type="checkbox" name="M2330">
-                            </div>
-                            <div class="col-3 b custom-checkbox  T2330">
-                                <input id="checkbox" type="checkbox" name="T2330">
-                            </div>
-                            <div class="col-3 b custom-checkbox  W2330">
-                                <input id="checkbox" type="checkbox" name="W2330">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row text-center">
-                            <div class="col-3 b custom-checkbox  TH2330">
-                                <input id="checkbox" type="checkbox" name="TH2330">
-                            </div>
-                            <div class="col-3 b custom-checkbox  F2330">
-                                <input id="checkbox" type="checkbox" name="F2330">
-                            </div>
-                            <div class="col-3 b custom-checkbox  S2330">
-                                <input id="checkbox" type="checkbox" name="S2330">
-                            </div>
-                            <div class="col-3 b custom-checkbox  SU2330">
-                                <input id="checkbox" type="checkbox" name="SU2330">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
 
     <script src="index.js"></script>
 </body>
